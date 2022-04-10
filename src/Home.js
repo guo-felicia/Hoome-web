@@ -2,30 +2,55 @@ import React from 'react';
 import './style/Home.css';
 import Banner from './Banner'
 import Card from './Card'
+import Card1 from './img/card1.png';
+import Card2 from './img/card2.png';
+import Card3 from './img/card3.png';
 
 // ES7 snippets to do 'rfce'
 
 function Home() {
     return (
         <div className='home'>
-            <Banner />
-            
+            <Banner/>
+
             <div className='home__section'>
-                <Card
-                    src="https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720"
-                    title="Online Experiences"
-                    description="Unique activities we can do together, led by a world of hosts."
-                />
-                <Card
-                    src="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
-                    title="Unique stays"
-                    description="Spaces that are more than just a place to sleep."
-                />
-                <Card
-                    src="https://a0.muscache.com/im/pictures/fdb46962-10c1-45fc-a228-d0b055411448.jpg?im_w=720"
-                    title="Entire homes"
-                    description="Comfortable private places, with room for friends or family."
-                />
+                <div className="card size">
+                    <img src={Card1} className="card-img-top" alt="..."></img>
+                    <div className="card-body">
+                        <h5 className="card-title">Online Experiences</h5>
+                        <p className="card-text">Unique activities we can do together, led by a world of hosts.</p>
+                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
+                    </div>
+                </div>
+                <div className="card size">
+                    <img src={Card2} className="card-img-top" alt="..."></img>
+                    <div className="card-body">
+                        <h5 className="card-title">Unique stays</h5>
+                        <p className="card-text">Spaces that are more than just a place to sleep.</p>
+                    </div>
+                </div>
+                <div className="card size">
+                    <img src={Card3} className="card-img-top" alt="..."></img>
+                    <div className="card-body">
+                        <h5 className="card-title">Find Rommie</h5>
+                        <p className="card-text">Comfortable friendly places, with room for friends.</p>
+                    </div>
+                </div>
+                {/*<Card className='card-img-top'*/}
+                {/*      src={Card1}*/}
+                {/*      title="Online Experiences"*/}
+                {/*      description="Unique activities we can do together, led by a world of hosts."*/}
+                {/*/>*/}
+                {/*<Card className='card-img-top'*/}
+                {/*    src={Card2}*/}
+                {/*    title="Unique stays"*/}
+                {/*    description="Spaces that are more than just a place to sleep."*/}
+                {/*/>*/}
+                {/*<Card className='card-img-top'*/}
+                {/*    src={Card3}*/}
+                {/*    title="Find Rommie"*/}
+                {/*    description="Comfortable friendly places, with room for friends."*/}
+                {/*/>*/}
             </div>
             {/*<div className='home__section'>*/}
             {/*    <Card*/}

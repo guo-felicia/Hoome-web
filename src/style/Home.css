@@ -2,3 +2,17 @@
     display: flex;
     padding: 30px;
 }
+
+.size{
+    width: 860px;
+    height: 320px;
+}
+
+.card-title{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.card-text{
+    padding:0px 10px 0px 10px;
+}
