@@ -1,7 +1,6 @@
 import React from 'react';
 import './style/Home.css';
 import Banner from './Banner'
-import Card from './Card'
 import Card1 from './img/card1.png';
 import Card2 from './img/card2.png';
 import Card3 from './img/card3.png';
@@ -36,21 +35,6 @@ function Home() {
                         <p className="card-text">Comfortable friendly places, with room for friends.</p>
                     </div>
                 </div>
-                {/*<Card className='card-img-top'*/}
-                {/*      src={Card1}*/}
-                {/*      title="Online Experiences"*/}
-                {/*      description="Unique activities we can do together, led by a world of hosts."*/}
-                {/*/>*/}
-                {/*<Card className='card-img-top'*/}
-                {/*    src={Card2}*/}
-                {/*    title="Unique stays"*/}
-                {/*    description="Spaces that are more than just a place to sleep."*/}
-                {/*/>*/}
-                {/*<Card className='card-img-top'*/}
-                {/*    src={Card3}*/}
-                {/*    title="Find Rommie"*/}
-                {/*    description="Comfortable friendly places, with room for friends."*/}
-                {/*/>*/}
             </div>
             {/*<div className='home__section'>*/}
             {/*    <Card*/}
