@@ -38,6 +38,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 15vw;
-    margin-right: 80px;
+    margin-right: 40px;
+}
+
+.mg10px {
+    margin: 10px;
 }
