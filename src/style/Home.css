@@ -16,3 +16,9 @@
 .card-text{
     padding:0px 10px 0px 10px;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
