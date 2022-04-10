@@ -5,7 +5,7 @@
 }
 
 .banner__info {
-    background-color: black;
+    background-color: #A9B185;
     color: white;
     padding-top: 25vh;
     padding-left: 50px;
@@ -23,11 +23,11 @@
     background-color: white !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
-    color: #ff7779 !important;
+    color: #000000 !important;
 }
 
 .banner__info > button {
-    background-color: #ff7779;
+    background-color: #000000;
     color: white;
     text-transform: inherit;
     margin-top: 20px;
@@ -36,7 +36,7 @@
 
 .banner__info > button:hover {
     background-color: white;
-    color: #ff7779;
+    color: #000000;
 }
 
 
