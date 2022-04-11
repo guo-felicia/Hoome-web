@@ -2,7 +2,6 @@ import React from "react";
 
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
-import {Outlet} from "react-router-dom";
 import houseReducer from "../reducers/house-reducer";
 import SearchList from "./SearchList";
 

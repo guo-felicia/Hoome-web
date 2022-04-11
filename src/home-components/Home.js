@@ -13,6 +13,7 @@ function Home() {
         <div className='home'>
             <Banner/>
             <div className='home__section'>
+                <Card></Card>
                 <div className="card size">
                     <img src={Card1} className="card-img-top" alt="..."></img>
                     <div className="card-body">
