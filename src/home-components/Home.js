@@ -12,7 +12,6 @@ function Home() {
     return (
         <div className='home'>
             <Banner/>
-
             <div className='home__section'>
                 <div className="card size">
                     <img src={Card1} className="card-img-top" alt="..."></img>
