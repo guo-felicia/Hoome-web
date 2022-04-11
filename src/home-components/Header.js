@@ -1,6 +1,6 @@
 import React from 'react'
-import './style/Header.css'
-import Icon from './img/brandicon.png';
+import '../style/Header.css'
+import Icon from '../img/brandicon.png';
 import SearchIcon from "@material-ui/icons/Search";
 import LanguageIcon from "@material-ui/icons/Language";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
