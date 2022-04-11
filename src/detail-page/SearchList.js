@@ -15,7 +15,7 @@ function SearchList() {
     const dispatch = useDispatch();
     useEffect(() =>
             findAllResults(dispatch),
-        [findAllResults]);
+        [dispatch]);
     
     console.log(houses);
     
