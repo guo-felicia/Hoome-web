@@ -1,10 +1,10 @@
 import React from 'react';
-import '../style/Home.css';
+import '../../style/Home.css';
 import Banner from './Banner'
 import Card from './Card'
-import Card1 from '../img/card1.png';
-import Card2 from '../img/card2.png';
-import Card3 from '../img/card3.png';
+import Card1 from '../../img/card1.png';
+import Card2 from '../../img/card2.png';
+import Card3 from '../../img/card3.png';
 
 // ES7 snippets to do 'rfce'
 

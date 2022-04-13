@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import '../style/SearchPage.css';
+import '../../style/SearchPage.css';
 import {Button} from "@material-ui/core";
 import SearchResult from "./SearchResult";
 
 import {useDispatch, useSelector}
     from "react-redux";
-import {findAllResults} from "../actions/house-actions";
+import {findAllResults} from "../../actions/house-actions";
 
 
 function SearchList() {
