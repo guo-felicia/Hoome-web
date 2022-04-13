@@ -7,7 +7,8 @@ import SearchPage from './detail-page/SearchPage'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
-    return (<BrowserRouter>
+    return (
+        <BrowserRouter>
             <div className="container">
                 <Header/>
                 <Routes>
@@ -17,7 +18,7 @@ function App() {
                         <Route path="/search"
                                element={<SearchPage/>}>
                         </Route>
-                        
+                    
                     </Route>
                 </Routes>
                 <Footer/>
