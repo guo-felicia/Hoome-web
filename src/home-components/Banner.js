@@ -19,7 +19,7 @@ function Banner() {
             <div className='banner__info'>
                 <h1>A home for you during pandemic</h1>
                 <h5>
-                    Find a warm and space for you. Whenever, and wherever you are.
+                    Find a warm space for you. Whenever, and wherever you are.
                 </h5>
                 <Button onClick={() => history('/search')} variant='outlined'>Explore Nearby</Button>
             </div>
