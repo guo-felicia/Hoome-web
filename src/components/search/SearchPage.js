@@ -3,7 +3,6 @@ import {useStateValue} from "../../StateProvider";
 import '../../style/SearchResult.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
-import fetch from "node-fetch";
 
 const SearchPage = () => {
     const [{term}] = useStateValue();
@@ -20,20 +19,18 @@ const SearchPage = () => {
         }
     };
     
-    useEffect(() => {
-        const fetchMe = () => {
-            
-            fetch(url, options)
-                .then(res => res.json())
-                .then(data => {
-                    setContainer(data.results)
-                    console.log(data.results)
-                })
-                .catch(err => console.error('error:' + err));
-        }
-        fetchMe()
-    }, [term])
+    useEffect(() => fetchMe(), [term])
     
+    const fetchMe = () => {
+        
+        fetch(url, options)
+            .then(res => res.json())
+            .then(data => {
+                setContainer(data.results)
+                console.log(data.results)
+            })
+            .catch(err => console.error('error:' + err));
+    }
     
     return (
         <div>
@@ -42,7 +39,7 @@ const SearchPage = () => {
                     <div className='searchResult'>
                         <img src={house.images[0]} alt=""/>
                         <FavoriteBorderIcon className="searchResult__heart"/>
-                        
+                
                         <div className='searchResult__info'>
                             <div className="searchResult__infoTop">
                                 <p>{house.address}</p>
@@ -50,7 +47,7 @@ const SearchPage = () => {
                                 <p>____</p>
                                 <p>{"Beds: " + house.beds + " Bedrooms: " + house.bedrooms + " Bathrooms: " + house.bathrooms}</p>
                             </div>
-                            
+                    
                             <div className="searchResult__infoBottom">
                                 <div className="searchResult__stars">
                                     <StarIcon className="searchResult__star"/>
@@ -65,7 +62,7 @@ const SearchPage = () => {
                         </div>
                     </div>
                 )}
-        
+            
         </div>
     );
 };
