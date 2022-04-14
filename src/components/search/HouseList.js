@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
-import styly from "../../style/style.css"
 
 const HouseList = () => {
     const [endPoint, setEndPoint] = useState('');

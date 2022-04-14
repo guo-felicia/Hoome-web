@@ -8,6 +8,12 @@
     cursor: pointer;
 }
 
+h1{
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 40px;
+}
+
 .searchResult:hover {
     opacity: 0.8;
 }
