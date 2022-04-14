@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
+import fetch from "node-fetch";
 
 const HouseList = () => {
     const [endPoint] = useState('');
@@ -17,18 +18,19 @@ const HouseList = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [endPoint,fetchMe])
+    useEffect(() => {
+        const fetchMe = () => {
+            fetch(url, options)
+                .then(res => res.json())
+                .then(data => {
+                    setContainer(data.results)
+                })
+                .catch(err => console.error('error:' + err));
+        }
+        fetchMe();
+    }, [endPoint])
     
-    const fetchMe = () => {
-        
-        fetch(url, options)
-            .then(res => res.json())
-            .then(data => {
-                setContainer(data.results)
-                console.log(data.results)
-            })
-            .catch(err => console.error('error:' + err));
-    }
+    
     
     return (
         <div>
