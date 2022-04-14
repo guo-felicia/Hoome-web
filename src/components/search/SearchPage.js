@@ -5,7 +5,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
 
 const SearchPage = () => {
-    const [{term},dispatch] = useStateValue();
+    const [{term}] = useStateValue();
     const [container, setContainer] = useState([]);
     
     const fetch = require('node-fetch');

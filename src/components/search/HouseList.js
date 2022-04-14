@@ -3,7 +3,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
 
 const HouseList = () => {
-    const [endPoint, setEndPoint] = useState('');
+    const [endPoint] = useState('');
     const [container, setContainer] = useState([]);
     
     const fetch = require('node-fetch');
