@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {Avatar} from "@material-ui/core";
 import {Link, useNavigate} from "react-router-dom";
 import {useStateValue} from "../../StateProvider";
-import * as action from "../../actions/house-actions";
+import * as action from "../../reducers/reducer";
 
 function Header() {
     const history = useNavigate();
