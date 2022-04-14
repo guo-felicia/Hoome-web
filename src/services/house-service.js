@@ -13,3 +13,9 @@ export const findAllResults = async () => {
     const results = response.data;
     return results;
 }
+
+export const findResultById = async (result) => {
+    const response = await axios
+        .get(`${HOUSE_API}/${result._id}`);
+    return response.data;
+}

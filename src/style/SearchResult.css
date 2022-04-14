@@ -1,4 +1,5 @@
 .searchResult {
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     position: relative;
     margin: 20px;
@@ -53,7 +54,7 @@
 
 
 .searchResult__star {
-    color: red;
+    color: #AC3C3C;
 }
 
 

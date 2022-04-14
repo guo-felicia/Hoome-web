@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {useStateValue} from "../../StateProvider";
-import '../../style/SearchResult.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
+import styly from "../../style/style.css"
 
-const SearchPage = () => {
-    const [{term},dispatch] = useStateValue();
+const HouseList = () => {
+    const [endPoint, setEndPoint] = useState('');
     const [container, setContainer] = useState([]);
     
     const fetch = require('node-fetch');
-    const url = `https://airbnb13.p.rapidapi.com/search-location?location=+${term}&checkin=2022-05-16&checkout=2022-05-17&adults=1&page=2`;
+    const url = `https://airbnb13.p.rapidapi.com/search-location?location=+${endPoint}&checkin=2022-05-16&checkout=2022-05-17&adults=1&page=2`;
     
     const options = {
         method: 'GET',
@@ -21,7 +20,7 @@ const SearchPage = () => {
     
     useEffect(() => {
         fetchMe()
-    }, [term])
+    }, [endPoint])
     
     const fetchMe = () => {
         
@@ -36,12 +35,13 @@ const SearchPage = () => {
     
     return (
         <div>
+            <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
                     <div className='searchResult'>
                         <img src={house.images[0]} alt=""/>
                         <FavoriteBorderIcon className="searchResult__heart"/>
-                
+                        
                         <div className='searchResult__info'>
                             <div className="searchResult__infoTop">
                                 <p>{house.address}</p>
@@ -49,7 +49,7 @@ const SearchPage = () => {
                                 <p>____</p>
                                 <p>{"Beds: " + house.beds + " Bedrooms: " + house.bedrooms + " Bathrooms: " + house.bathrooms}</p>
                             </div>
-                    
+                            
                             <div className="searchResult__infoBottom">
                                 <div className="searchResult__stars">
                                     <StarIcon className="searchResult__star"/>
@@ -64,9 +64,9 @@ const SearchPage = () => {
                         </div>
                     </div>
                 )}
-            
+        
         </div>
     );
 };
 
-export default SearchPage;
+export default HouseList;

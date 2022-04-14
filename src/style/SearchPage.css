@@ -16,3 +16,7 @@
     text-transform: inherit;
     margin: 5px;
 }
+
+a {
+    all: unset;
+}
