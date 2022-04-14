@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useStateValue} from "../../StateProvider";
 import '../../style/SearchResult.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
@@ -21,7 +21,7 @@ const SearchPage = () => {
     
     useEffect(() => fetchMe(), [term])
     
-    const fetchMe = () => {
+    const fetchMe = useCallback(() => {
         
         fetch(url, options)
             .then(res => res.json())
@@ -30,7 +30,7 @@ const SearchPage = () => {
                 console.log(data.results)
             })
             .catch(err => console.error('error:' + err));
-    }
+    },[]);
     
     return (
         <div>

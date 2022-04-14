@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -19,7 +19,7 @@ const HouseList = () => {
     
     useEffect(() => fetchMe(), [endPoint])
     
-    const fetchMe = () => {
+    const fetchMe = useCallback(() => {
         
         fetch(url, options)
             .then(res => res.json())
@@ -28,7 +28,7 @@ const HouseList = () => {
                 console.log(data.results)
             })
             .catch(err => console.error('error:' + err));
-    }
+    },[]);
     
     return (
         <div>
