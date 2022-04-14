@@ -19,9 +19,7 @@ const SearchPage = () => {
         }
     };
     
-    useEffect(() => {
-        fetchMe()
-    }, [term])
+    useEffect(() => fetchMe(), [term])
     
     const fetchMe = () => {
         

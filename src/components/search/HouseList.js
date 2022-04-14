@@ -17,9 +17,7 @@ const HouseList = () => {
         }
     };
     
-    useEffect(() => {
-        fetchMe()
-    }, [endPoint])
+    useEffect(() => fetchMe(), [endPoint])
     
     const fetchMe = () => {
         
