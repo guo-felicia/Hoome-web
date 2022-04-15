@@ -34,33 +34,34 @@ const HouseList = () => {
             <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
-                    <div className='searchResult'>
-                        <img src={house.images[0]} alt=""/>
-                        <FavoriteBorderIcon className="searchResult__heart"/>
-                        
-                        <div className='searchResult__info'>
-                            <div className="searchResult__infoTop">
-                                <p>{house.address}</p>
-                                <h3>{house.name}</h3>
-                                <p>____</p>
-                                <p>{"Beds: " + house.beds + " Bedrooms: " + house.bedrooms + " Bathrooms: " + house.bathrooms}</p>
-                            </div>
+                    <a href={`/results/detail/${house.id}`}>
+                        <div className='searchResult'>
+                            <img src={house.images[0]} alt=""/>
+                            <FavoriteBorderIcon className="searchResult__heart"/>
                             
-                            <div className="searchResult__infoBottom">
-                                <div className="searchResult__stars">
-                                    <StarIcon className="searchResult__star"/>
-                                    <p>
-                                        <strong>{house.rating}</strong>
-                                    </p>
+                            <div className='searchResult__info'>
+                                <div className="searchResult__infoTop">
+                                    <p>{house.address}</p>
+                                    <h3>{house.name}</h3>
+                                    <p>____</p>
+                                    <p>{"Beds: " + house.beds + " Bedrooms: " + house.bedrooms + " Bathrooms: " + house.bathrooms}</p>
                                 </div>
-                                <div className='searchResults__price'>
-                                    <h3>{house.price.currency + " " + house.price.total + " /night"}</h3>
+                                
+                                <div className="searchResult__infoBottom">
+                                    <div className="searchResult__stars">
+                                        <StarIcon className="searchResult__star"/>
+                                        <p>
+                                            <strong>{house.rating}</strong>
+                                        </p>
+                                    </div>
+                                    <div className='searchResults__price'>
+                                        <h3>{house.price.currency + " " + house.price.total + " /night"}</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 )}
-        
         </div>
     );
 };

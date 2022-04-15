@@ -1,9 +1,16 @@
-import React, {useEffect} from 'react';
-import {Axios} from "axios";
+import React from 'react';
 
-import {useDispatch, useSelector}
-    from "react-redux";
-import {findAllResults,findResultById} from "../../actions/house-actions";
+// const SearchDetail = () => {
+//     return (
+//         <div>
+//             <h1>SearchDetail</h1>
+//         </div>
+//     );
+// };
+//
+// export default SearchDetail;
+
+
 
 function SearchDetail(props){
     // const houses = useSelector(
@@ -14,7 +21,7 @@ function SearchDetail(props){
     // useEffect(() =>
     //         findResultById(dispatch,houses),
     //     [dispatch,houses]);
-    
+
     // useEffect(() => {
     //     Axios.get(`api/results/results_by_id?id=${resultId}`)
     //         .then(response => {

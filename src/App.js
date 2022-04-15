@@ -7,6 +7,7 @@ import HouseList from "./components/search/HouseList";
 import SearchPage from "./components/search/SearchPage";
 import {StateProvider} from "./StateProvider";
 import reducer, {initialState} from "./reducers/reducer";
+import SearchDetail from "./components/detail/SearchDetail";
 
 
 function App() {
@@ -19,13 +20,9 @@ function App() {
                     <Routes>
                         <Route path="/">
                             <Route index element={<Home/>}/>
-                            <Route path="explore"
-                                   element={<HouseList/>}>
-                            </Route>
-                            <Route path="results"
-                                   element={<SearchPage/>}>
-                            </Route>
-                        
+                            <Route path="explore" element={<HouseList/>}/>
+                            <Route path="results" element={<SearchPage/>}/>
+                            <Route path="results/detail/:id" element={<SearchDetail/>}/>
                         </Route>
                     </Routes>
                     <Footer/>
