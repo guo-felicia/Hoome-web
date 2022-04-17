@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
+import {useNavigate} from "react-router-dom";
 
 const HouseList = () => {
     const [endPoint] = useState('');
     const [container, setContainer] = useState([]);
+    const navigate = useNavigate();
     
     const fetch = require('node-fetch');
-    const url = `https://airbnb13.p.rapidapi.com/search-location?location=+${endPoint}&checkin=2022-05-16&checkout=2022-05-17&adults=1&page=2`;
+    const url = `https://airbnb13.p.rapidapi.com/search-location?location=+${endPoint}&checkin=2022-05-16&checkout=2022-05-17&adults=3&page=2`;
     
     const options = {
         method: 'GET',
@@ -24,7 +26,7 @@ const HouseList = () => {
             .then(res => res.json())
             .then(data => {
                 setContainer(data.results)
-                console.log(data.results)
+                // console.log(data.results)
             })
             .catch(err => console.error('error:' + err));
     }
@@ -34,7 +36,9 @@ const HouseList = () => {
             <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
-                    <a href={`/results/detail/${house.id}`}>
+                    <a onClick={() => {
+                        navigate(`/search/${house.id}`, {state:{house}})
+                    }}>
                         <div className='searchResult'>
                             <img src={house.images[0]} alt=""/>
                             <FavoriteBorderIcon className="searchResult__heart"/>

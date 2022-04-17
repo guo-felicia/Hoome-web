@@ -21,7 +21,7 @@ function Header() {
     
     const submitHandler = e => {
         e.preventDefault()
-        history('/results')
+        history('/search')
         
         dispatch({
             type: action.SET_SEARCH_TERM,
@@ -45,7 +45,7 @@ function Header() {
                 <input type="text"
                        value={endPoint}
                        onChange={onChangeHandler}
-                       placeholder="Start your search"/>
+                       placeholder="Try search Bos ~"/>
                 <button type='submit'
                         onClick={submitHandler}>
                     <SearchIcon/></button>
@@ -62,8 +62,9 @@ function Header() {
                     <Avatar/>
                 </div>
             </div>
-        
+            
         </div>)
+    
 }
 
 export default Header

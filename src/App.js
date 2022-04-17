@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Home from './components/home/Home'
 import Header from './components/home/Header'
 import Footer from './components/home/Footer'
@@ -12,6 +12,7 @@ import SearchDetail from "./components/detail/SearchDetail";
 
 function App() {
     return (
+        
         <BrowserRouter>
             <div className="container">
                 <StateProvider initialState={initialState} reducer={reducer}>
@@ -21,8 +22,8 @@ function App() {
                         <Route path="/">
                             <Route index element={<Home/>}/>
                             <Route path="explore" element={<HouseList/>}/>
-                            <Route path="results" element={<SearchPage/>}/>
-                            <Route path="results/detail/:id" element={<SearchDetail/>}/>
+                            <Route path="search" element={<SearchPage/>}/>
+                            <Route path="search/:id" element={<SearchDetail/>}/>
                         </Route>
                     </Routes>
                     <Footer/>
