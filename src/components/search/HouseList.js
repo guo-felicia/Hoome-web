@@ -36,7 +36,7 @@ const HouseList = () => {
             <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
-                    <a href=""
+                    <button className="unset_button"
                        onClick={() => {
                            navigate(`/search/${house.id}`, {state: {house}})
                        }}>
@@ -65,7 +65,7 @@ const HouseList = () => {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </button>
                 )}
         </div>
     );

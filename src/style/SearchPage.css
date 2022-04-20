@@ -26,3 +26,9 @@ h1{
     font-family: 'Open Sans', sans-serif;
     margin-left: 40px;
 }
+
+.unset_button{
+    all:unset;
+    cursor: pointer;
+    width: 100%;
+}

@@ -39,7 +39,7 @@ const SearchPage = () => {
         <div>
             {
                 container.map((house) =>
-                    <a href="/search/${house.id}"
+                    <button className='unset_button'
                         onClick={() => {
                         navigate(`/search/${house.id}`, {state: {house}})
                     }}>
@@ -68,7 +68,7 @@ const SearchPage = () => {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </button>
                 )}
         </div>
     );

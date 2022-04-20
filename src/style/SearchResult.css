@@ -83,5 +83,10 @@ a {
     right: 30px;
 }
 
+.unset_button{
+    all:unset;
+    cursor: pointer;
+    width: 100%;
+}
 
 
