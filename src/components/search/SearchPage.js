@@ -39,7 +39,8 @@ const SearchPage = () => {
         <div>
             {
                 container.map((house) =>
-                    <a onClick={() => {
+                    <a href=""
+                        onClick={() => {
                         navigate(`/search/${house.id}`, {state: {house}})
                     }}>
                         <div className='searchResult'>

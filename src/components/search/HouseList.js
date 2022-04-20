@@ -36,7 +36,8 @@ const HouseList = () => {
             <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
-                    <a onClick={() => {
+                    <a  href=""
+                        onClick={() => {
                         navigate(`/search/${house.id}`, {state:{house}})
                     }}>
                         <div className='searchResult'>

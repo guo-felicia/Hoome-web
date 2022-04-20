@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import '../../style/DetailPage.css'
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
