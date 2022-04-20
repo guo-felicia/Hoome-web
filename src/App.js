@@ -10,6 +10,8 @@ import Following from "./components/profile/Following";
 import Followers from "./components/profile/Followers";
 import Reviews from "./components/profile/Reviews";
 import Favorites from "./components/profile/Favorites";
+import LoginPage from "./components/Login/LoginPage";
+import SignupPage from "./components/Login/SignupPage"
 
 function App() {
     return (
@@ -23,25 +25,29 @@ function App() {
                         <Route path="/search"
                                element={<SearchPage/>}>
                         </Route>
+
+                        <Route path="/profile">
+                            <Route index element={<ProfilePage/>}/>
+
+                            <Route path="/profile/editprofile" element={<EditProfilePage/>}>
+                            </Route>
+                            <Route path="/profile/following" element={<Following/>}>
+
+                            </Route>
+                            <Route path="/profile/followers" element={<Followers/>}>
+
+                            </Route>
+                            <Route path="/profile/review" element={<Reviews/>}>
+
+                            </Route>
+                            <Route path="/profile/favorites" element={<Favorites/>}>
+
+                            </Route>
+                        </Route>
+
+                        <Route path="/login" element={<LoginPage/>}/>
+                        <Route path="/signup" element={<SignupPage/>}/>
                     
-                    </Route>
-                    <Route path="/profile">
-                        <Route index element={<ProfilePage/>}/>
-
-                        <Route path="/profile/editprofile" element={<EditProfilePage/>}>
-                        </Route>
-                        <Route path="/profile/following" element={<Following/>}>
-
-                        </Route>
-                        <Route path="/profile/followers" element={<Followers/>}>
-
-                        </Route>
-                        <Route path="/profile/review" element={<Reviews/>}>
-
-                        </Route>
-                        <Route path="/profile/favorites" element={<Favorites/>}>
-
-                        </Route>
                     </Route>
                 </Routes>
                 <Footer/>

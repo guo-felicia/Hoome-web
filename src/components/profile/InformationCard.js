@@ -12,16 +12,7 @@ import {
     ListItemButton,
     TextField
 } from "@mui/material";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
-
-const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
-);
+import {Link} from "react-router-dom";
 
 const card = (
     <React.Fragment>
