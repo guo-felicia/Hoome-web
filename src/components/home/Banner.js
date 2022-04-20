@@ -17,11 +17,11 @@ function Banner() {
                 </Button>
             </div>
             <div className='banner__info'>
-                <h1>A home for you during pandemic</h1>
+                <h2>A home for you during pandemic</h2>
                 <h5>
                     Find a warm space for you. Whenever, and wherever you are.
                 </h5>
-                <Button onClick={() => history('/search')} variant='outlined'>Explore Nearby</Button>
+                <Button onClick={() => history('/explore')} variant='outlined'>Explore Nearby</Button>
             </div>
         </div>
     )

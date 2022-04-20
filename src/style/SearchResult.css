@@ -1,10 +1,21 @@
 .searchResult {
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     position: relative;
     margin: 20px;
     padding: 20px;
     border-bottom: 1px solid lightgray;
     cursor: pointer;
+}
+
+h1{
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 40px;
+}
+
+a {
+    all: unset;
 }
 
 .searchResult:hover {
@@ -53,7 +64,7 @@
 
 
 .searchResult__star {
-    color: red;
+    color: #AC3C3C;
 }
 
 
@@ -72,5 +83,10 @@
     right: 30px;
 }
 
+.unset_button{
+    all:unset;
+    cursor: pointer;
+    width: 100%;
+}
 
 

@@ -16,3 +16,19 @@
     text-transform: inherit;
     margin: 5px;
 }
+
+a {
+    all: unset;
+}
+
+h1{
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 40px;
+}
+
+.unset_button{
+    all:unset;
+    cursor: pointer;
+    width: 100%;
+}
