@@ -22,7 +22,7 @@ const SearchPage = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [term])
+    useEffect(() => fetchMe(), [])
     
     const fetchMe = () => {
         
@@ -39,7 +39,7 @@ const SearchPage = () => {
         <div>
             {
                 container.map((house) =>
-                    <a href=""
+                    <a href="/search/${house.id}"
                         onClick={() => {
                         navigate(`/search/${house.id}`, {state: {house}})
                     }}>
