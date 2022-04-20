@@ -33,7 +33,7 @@ const SearchPage = () => {
             .catch(err => console.error('error:' + err));
     }
     
-    useEffect(() => fetchMe(), [fetchMe,term])
+    useEffect(() => fetchMe(), [term])
     
 
     return (
