@@ -19,8 +19,6 @@ const HouseList = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [endPoint])
-    
     const fetchMe = () => {
         fetch(url, options)
             .then(res => res.json())
@@ -30,6 +28,10 @@ const HouseList = () => {
             })
             .catch(err => console.error('error:' + err));
     }
+    
+    useEffect(() => fetchMe(), [endPoint])
+    
+
     
     return (
         <div>

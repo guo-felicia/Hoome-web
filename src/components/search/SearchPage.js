@@ -22,8 +22,6 @@ const SearchPage = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [term])
-    
     const fetchMe = () => {
         
         fetch(url, options)
@@ -35,6 +33,9 @@ const SearchPage = () => {
             .catch(err => console.error('error:' + err));
     }
     
+    useEffect(() => fetchMe(), [term])
+    
+
     return (
         <div>
             {
