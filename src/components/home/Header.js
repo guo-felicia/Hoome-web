@@ -11,7 +11,7 @@ import * as action from "../../reducers/reducer";
 
 function Header() {
     const history = useNavigate();
-    const [{}, dispatch] = useStateValue();
+    const [{item}, dispatch] = useStateValue('');
     const [endPoint, setEndPoint] = useState('');
     
     
@@ -22,12 +22,12 @@ function Header() {
     const submitHandler = e => {
         e.preventDefault()
         history('/search')
-        
         dispatch({
             type: action.SET_SEARCH_TERM,
             term: endPoint
         })
     }
+    console.log(item)
     
     return (
         <div className='header'>
