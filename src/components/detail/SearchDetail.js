@@ -6,13 +6,8 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ThingsToKnow from "./ThingsToKnow";
 
 const SearchDetail = () => {
-    const searchId = useParams();
-    
-    console.log(searchId)
     const location = useLocation();
     const house = location.state.house;
-    console.log(location)
-    
     
     return (
         <div className='detail'>
