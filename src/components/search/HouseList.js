@@ -19,7 +19,7 @@ const HouseList = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [endPoint])
+    useEffect(() => fetchMe(), [])
     
     const fetchMe = () => {
         fetch(url, options)
@@ -36,10 +36,10 @@ const HouseList = () => {
             <h1 className='font'>Explore houses with us</h1>
             {
                 container.map((house) =>
-                    <a  href=""
-                        onClick={() => {
-                        navigate(`/search/${house.id}`, {state:{house}})
-                    }}>
+                    <a href=""
+                       onClick={() => {
+                           navigate(`/search/${house.id}`, {state: {house}})
+                       }}>
                         <div className='searchResult'>
                             <img src={house.images[0]} alt=""/>
                             <FavoriteBorderIcon className="searchResult__heart"/>

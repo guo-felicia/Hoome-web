@@ -51,7 +51,7 @@ const SearchDetail = () => {
                 </div>
                 <div className='image-block'>
                     {house.images.map((image) => <div className='column'>
-                        <img className='img' src={image}/>
+                        <img className='img' src={image} alt=""/>
                     </div>)}
                 </div>
             </div>
