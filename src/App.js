@@ -5,6 +5,11 @@ import Footer from './components/home/Footer'
 import SearchPage from './components/search/SearchPage'
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import ProfilePage, {EditProfilePage} from "./components/profile/InformationCard";
+import Following from "./components/profile/Following";
+import Followers from "./components/profile/Followers";
+import Reviews from "./components/profile/Reviews";
+import Favorites from "./components/profile/Favorites";
 
 function App() {
     return (
@@ -19,6 +24,24 @@ function App() {
                                element={<SearchPage/>}>
                         </Route>
                     
+                    </Route>
+                    <Route path="/profile">
+                        <Route index element={<ProfilePage/>}/>
+
+                        <Route path="/profile/editprofile" element={<EditProfilePage/>}>
+                        </Route>
+                        <Route path="/profile/following" element={<Following/>}>
+
+                        </Route>
+                        <Route path="/profile/followers" element={<Followers/>}>
+
+                        </Route>
+                        <Route path="/profile/review" element={<Reviews/>}>
+
+                        </Route>
+                        <Route path="/profile/favorites" element={<Favorites/>}>
+
+                        </Route>
                     </Route>
                 </Routes>
                 <Footer/>
