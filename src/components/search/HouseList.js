@@ -19,7 +19,7 @@ const HouseList = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [])
+    useEffect(() => fetchMe(), [endPoint])
     
     const fetchMe = () => {
         fetch(url, options)

@@ -11,7 +11,7 @@ import * as action from "../../reducers/reducer";
 
 function Header() {
     const history = useNavigate();
-    const [dispatch] = useStateValue();
+    const [{}, dispatch] = useStateValue();
     const [endPoint, setEndPoint] = useState('');
     
     
@@ -62,7 +62,7 @@ function Header() {
                     <Avatar/>
                 </div>
             </div>
-            
+        
         </div>)
     
 }

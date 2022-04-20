@@ -22,7 +22,7 @@ const SearchPage = () => {
         }
     };
     
-    useEffect(() => fetchMe(), [])
+    useEffect(() => fetchMe(), [term])
     
     const fetchMe = () => {
         
