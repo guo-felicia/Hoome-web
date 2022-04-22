@@ -16,6 +16,7 @@
 }
 
 .banner__search {
+    background-color: white;
     display: flex;
     flex-direction: column;
 }
@@ -43,4 +44,11 @@
 
 .banner__info > h5 {
     margin-top: 10px;
+}
+
+.news{
+    padding-left: 400px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: white;
 }
