@@ -4,6 +4,8 @@ import '../../style/DetailPage.css'
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ThingsToKnow from "./ThingsToKnow";
+import Reviews from "./Reviews";
+import Questions from "./Questions";
 
 const SearchDetail = () => {
     const location = useLocation();
@@ -25,7 +27,6 @@ const SearchDetail = () => {
                     <FavoriteBorderIcon/>
                     <p className='heart_text'>save</p>
                 </div>
-            
             </div>
             
             {/*Main contents*/}
@@ -56,7 +57,17 @@ const SearchDetail = () => {
                 </div>
             </div>
             
+            {/*Reviews*/}
+            <h2>Reviews</h2>
+            <Reviews/>
+            
+            {/*Questions*/}
+            <h2>Frequently Ask</h2>
+            <Questions/>
+            
+            
             {/*Things to Know*/}
+            <h2>Things to Know</h2>
             <ThingsToKnow/>
         
         </div>);

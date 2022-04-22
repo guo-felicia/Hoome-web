@@ -3,7 +3,6 @@ import React from 'react';
 const ThingsToKnow = () => {
     return (
         <div className="row col-3-section">
-            <h2 className='banner_title'>Things to Know</h2>
             <div className="wd-column">
                 <h3>House rules</h3>
                 <ul>
