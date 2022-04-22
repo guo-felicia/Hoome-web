@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../../style/Banner.css'
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
