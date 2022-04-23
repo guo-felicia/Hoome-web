@@ -1145,9 +1145,9 @@
    * A fast object `.reduce()` implementation.
    *
    * @param  {Object}   subject      The object to reduce over.
-   * @param  {Function} fn           The reducer function.
-   * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
-   * @param  {Object}   thisContext  The context for the reducer.
+   * @param  {Function} fn           The houseReducer function.
+   * @param  {mixed}    initialValue The initial value for the houseReducer, defaults to subject[0].
+   * @param  {Object}   thisContext  The context for the houseReducer.
    * @return {mixed}                 The final result.
    */
 
@@ -1228,7 +1228,7 @@
   var _byLigature = {};
   var _byOldName = {};
   var build = function build() {
-    var lookup = function lookup(reducer) {
+    var lookup = function lookup(houseReducer) {
       return reduce(styles, function (o, style, prefix) {
         o[prefix] = reduce(style, reducer, {});
         return o;

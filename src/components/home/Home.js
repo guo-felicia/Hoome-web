@@ -19,7 +19,6 @@ function Home() {
                     <div className="card-body">
                         <h5 className="card-title">Online Experiences</h5>
                         <p className="card-text">Unique activities we can do together, led by a world of hosts.</p>
-                        {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
                     </div>
                 </div>
                 <div className="card size">

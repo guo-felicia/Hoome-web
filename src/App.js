@@ -13,15 +13,23 @@ import SignupPage from "./components/Login/SignupPage"
 import HouseList from "./components/search/HouseList";
 import SearchPage from "./components/search/SearchPage";
 import {StateProvider} from "./StateProvider";
-import reducer, {initialState} from "./reducers/reducer";
+import houseReducer, {initialState} from "./reducers/House-reducer";
 import SearchDetail from "./components/detail/SearchDetail";
+import {combineReducers, createStore} from "redux";
+import questionReducer from "./reducers/Question-reducer";
 
 
 function App() {
+    const rootReducer = combineReducers({
+        houses: houseReducer,
+        questions: questionReducer
+    });
+    
+    const store = createStore(rootReducer);
     return (
         <BrowserRouter>
             <div className="container">
-                <StateProvider initialState={initialState} reducer={reducer}>
+                <StateProvider initialState={initialState} reducer={rootReducer}>
                     <Header/>
                     <Routes>
                         <Route path="/">

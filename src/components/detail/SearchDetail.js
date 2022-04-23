@@ -6,71 +6,34 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ThingsToKnow from "./ThingsToKnow";
 import Reviews from "./Reviews";
 import Questions from "./Questions";
+import {combineReducers, createStore} from "redux";
+import houseReducer from "../../reducers/House-reducer";
+import questionReducer from "../../reducers/Question-reducer";
+import {Provider} from "react-redux";
+import HouseDetail from "./HouseDetail";
 
 const SearchDetail = () => {
     const location = useLocation();
     const house = location.state.house;
-    
+    const rootReducer = combineReducers({
+        houses: houseReducer,
+        questions: questionReducer
+    });
+    const store = createStore(rootReducer);
     return (
-        <div className='detail'>
-            <h2 className='bg'>{house.name}</h2>
-            
-            {/*TITLE*/}
-            <div className="searchResult__stars rating">
-                <StarIcon className="searchResult__star"/>
-                <p>{house.rating}</p>
-                <p className='middle_dot'> · </p>
-                <p>{house.reviewsCount} reviews</p>
-                <p className='middle_dot'> · </p>
-                <p>{house.address}</p>
-                <div className="heart">
-                    <FavoriteBorderIcon/>
-                    <p className='heart_text'>save</p>
-                </div>
-            </div>
-            
-            {/*Main contents*/}
-            <div className="row main">
-                <div className="info">
-                    <h2 className='banner_title'>
-                        {house.type} hosted by our friendly host
-                    </h2>
-                    <img className="avatar" src={house.hostThumbnail} alt="Avatar"/>
-                    <p>{"Beds: " + house.beds + "  ·  Bedrooms: " + house.bedrooms + "  ·  Bathrooms: " + house.bathrooms}</p>
-                    <p>___</p>
-                    <h3 className='banner_title'>Amenities</h3>
-                    <ul>
-                        {house.previewAmenities.map((item) =>
-                            <li>
-                                {item}
-                            </li>
-                        )}
-                    </ul>
-                    <h3 className='banner_title'>Neighborhood</h3>
-                    {house.neighborhood}
-                
-                </div>
-                <div className='image-block'>
-                    {house.images.map((image) => <div className='column'>
-                        <img className='img' src={image} alt=""/>
-                    </div>)}
-                </div>
-            </div>
-            
+        <Provider store={store}>
+            <HouseDetail house={house}/>
             {/*Reviews*/}
             <h2>Reviews</h2>
             <Reviews/>
-            
             {/*Questions*/}
             <h2>Frequently Ask</h2>
             <Questions/>
-            
-            
             {/*Things to Know*/}
             <h2>Things to Know</h2>
             <ThingsToKnow/>
         
-        </div>);
+        </Provider>);
 };
 
 export default SearchDetail;
