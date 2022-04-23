@@ -1,11 +1,11 @@
 import axios from 'axios';
 //local
-// const TUITS_API = 'http://localhost:4000/api/tuits';
+const QUESTION_API = 'http://localhost:4000/api/questions';
 //heroku
 // const TUITS_API = 'https://full-stack-developer-server.herokuapp.com/api/tuits';
 
 const API_BASE = process.env.REACT_APP_API_BASE;
-const QUESTION_API = `${API_BASE}/questions`;
+// const QUESTION_API = `${API_BASE}/questions`;
 
 
 export const findAllQuestions = async () => {

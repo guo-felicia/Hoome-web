@@ -1,15 +1,13 @@
 import React from 'react';
 import {useLocation} from "react-router-dom";
 import '../../style/DetailPage.css'
-import StarIcon from "@material-ui/icons/Star";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ThingsToKnow from "./ThingsToKnow";
 import Reviews from "./Reviews";
 import Questions from "./Questions";
 import {combineReducers, createStore} from "redux";
 import houseReducer from "../../reducers/House-reducer";
 import questionReducer from "../../reducers/Question-reducer";
-import {Provider} from "react-redux";
+import {Provider, useSelector} from "react-redux";
 import HouseDetail from "./HouseDetail";
 
 const SearchDetail = () => {
@@ -20,6 +18,7 @@ const SearchDetail = () => {
         questions: questionReducer
     });
     const store = createStore(rootReducer);
+    
     return (
         <Provider store={store}>
             <HouseDetail house={house}/>
