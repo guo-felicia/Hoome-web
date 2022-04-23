@@ -6,20 +6,23 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {
-    Divider,
+    Avatar,
+    Divider, Grid,
     List,
     ListItem,
     ListItemButton,
-    TextField
+    TextField, Toolbar
 } from "@mui/material";
 import {Link} from "react-router-dom";
 
 const card = (
     <React.Fragment>
         <CardContent>
-            <div className={"d-flex justify-content-center mb-3"}>
-                <img alt="avatar" src="tempImage.png" className={"rounded-circle fs-5 img-fluid "}/>
-            </div>
+            <br/>
+            <Avatar sx={{height: '220px', width: '220px', mx: 'auto'}}>
+                <img alt="avatar" src="tempImage.png"/>
+            </Avatar>
+            <br/>
             <div>
                 <Link to="/profile/updatephoto" style={{ textDecoration: 'none' }}>
                     <Typography color={"black"} align={"center"}>
@@ -71,13 +74,16 @@ const card = (
                                 </Link>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem disablePadding className="mt-4 ms-2 mb-2">
-                            <TextField
-                                id="outlined-multiline-static"
-                                label="Personal Signature"
-                                multiline
-                                rows={4}
-                            />
+                        <ListItem>
+                            <Box>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    margin="normal"
+                                    label="Personal Signature"
+                                    multiline
+                                    rows={4}
+                                />
+                            </Box>
                         </ListItem>
                     </List>
                 </nav>
@@ -94,38 +100,58 @@ const card = (
 );
 
 const Aboutyou = () => {
+    let dv = "old information";
     return (
-        <div>
-            <label htmlFor="aboutyou" className="form-label">About You</label>
-            <textarea className="form-control" id="aboutyou" rows="4"/>
-        </div>
+        <TextField
+            id="aboutyou"
+            label="About You"
+            multiline
+            rows={4}
+            defaultValue= {dv}
+            margin="normal"
+        />
     )
 }
 
 const YourLocation =  () => {
+    let dv = "old information";
     return (
-        <div>
-            <label htmlFor="yourlocation" className="form-label">Your Location</label>
-            <textarea className="form-control" id="yourlocation" rows="1"/>
-        </div>
+        <TextField
+            id="location"
+            label="Your Location"
+            multiline
+            rows={2}
+            defaultValue= {dv}
+            margin="normal"
+        />
     )
 }
 
 const Languages = () => {
+    let dv = "old information";
     return (
-        <div>
-            <label htmlFor="languagesyouspeak" className="form-label">Languages You Speak</label>
-            <textarea className="form-control" id="languagesyouspeak" rows="1"/>
-        </div>
+        <TextField
+            id="languageyouspeak"
+            label="Languages You Speak"
+            multiline
+            rows={2}
+            defaultValue= {dv}
+            margin="normal"
+        />
     )
 }
 
 const Jobs = () => {
+    let dv = "old information";
     return(
-        <div>
-            <label htmlFor="yourjob" className="form-label">Your Job</label>
-            <textarea className="form-control" id="yourjob" rows="1"/>
-        </div>
+        <TextField
+            id="yourjob"
+            label="Your Job"
+            multiline
+            rows={2}
+            defaultValue= {dv}
+            margin="normal"
+        />
     )
 }
 
@@ -133,32 +159,37 @@ const EditProfile = () => {
     // HD in 2 button. Should actually send information back to server, then get from server
     return (
         <>
-            <div className="mt-5 mb-5">
-                <Aboutyou/>
-            </div>
-            <div className="mt-5 mb-4">
-                <YourLocation/>
-            </div>
-            <div className="mt-4 mb-4">
-                <Languages/>
-            </div>
-            <div className="mt-4 mb-4">
-                <Jobs/>
-            </div>
-            <Button variant="contained">
-                <Link to="/profile" style={{ textDecoration: 'none' }}>
-                    <Typography color={"white"}>
-                        Saved
-                    </Typography>
-                </Link>
-            </Button>
-            <Button variant="outlined" className="float-end">
-                <Link to="/profile" style={{ textDecoration: 'none' }}>
-                    <Typography color={"blue"}>
-                        Cancel
-                    </Typography>
-                </Link>
-            </Button>
+            <Grid container direction="column" item xs={7} align="center">
+                <div>
+                    <Aboutyou/>
+                </div>
+                <div>
+                    <YourLocation/>
+                </div>
+                <div>
+                    <Languages/>
+                </div>
+                <div>
+                    <Jobs/>
+                </div>
+                <br/>
+                <Toolbar sx={{ justifyContent: "space-between" }}>
+                    <Button variant="outlined">
+                        <Link to="/profile" style={{ textDecoration: 'none' }}>
+                            <Typography color={"grey"}>
+                                Saved
+                            </Typography>
+                        </Link>
+                    </Button>
+                    <Button variant="outlined">
+                        <Link to="/profile" style={{ textDecoration: 'none' }}>
+                            <Typography color={"grey"}>
+                                Cancel
+                            </Typography>
+                        </Link>
+                    </Button>
+                </Toolbar>
+            </Grid>
         </>
     )
 }
@@ -166,24 +197,27 @@ const EditProfile = () => {
 const ProfileInfo = () => {
     const username = "Caelan"; // HD now
     return (
-        <div className="ms-5">
-            <h2 className="fst-italic mb-5">{`Hello, ${username}`}</h2>
+        <Grid container direction="column" item xs={7} align="center">
+            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
+            <br/>
             <Link to="/profile/editprofile" style={{ textDecoration: 'none' }}>
                 <Typography color={"black"}>
                     <u>Edit Your Profile</u>
                 </Typography>
             </Link>
-        </div>
+        </Grid>
     )
 }
 
 const ProfileInfoEdit = () => {
     const username = "Caelan"; // HD now
     return (
-        <div className="ms-5">
-            <h2 className="fst-italic mb-5">{`Hello, ${username}`}</h2>
+        <Grid container direction="column" item xs={7} align="center">
+            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
+            <br/>
             <EditProfile/>
-        </div>
+            <br/>
+        </Grid>
     )
 }
 

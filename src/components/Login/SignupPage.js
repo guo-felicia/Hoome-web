@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
+import Box from "@mui/material/Box";
 
 export default function LoginPage() {
     const usernameRef = useRef();
@@ -16,11 +17,15 @@ export default function LoginPage() {
             <CardContent>
                 <Grid container direction="column" justifyContent="center"
                       alignItems="center">
-                    <h2 className="mt-4 mb-4 ms-4 me-4">Welcome to Hoome</h2>
-                    <h5 className="text-black">Please Sign Up</h5>
-                    <Input ref={emailRef} className="mt-4 mb-4 ms-4 me-4" placeholder="Email"/>
-                    <Input ref={usernameRef} className="mt-4 mb-4 ms-4 me-4" placeholder="Username"/>
-                    <Input ref={passwordRef} className="mb-4 ms-4 me-4" placeholder="Password"/>
+                    <Box sx={{fontSize : 'h3.fontSize'}} m={3} >Welcome to Hoome</Box>
+                    <Box sx={{fontSize : 'h5.fontSize'}} mb={2} color={"gray"}>Please Sign Up</Box>
+                    <Input ref={emailRef} placeholder="Email"/>
+                    <br/>
+                    <Input ref={usernameRef} placeholder="Username"/>
+                    <br/>
+                    <Input ref={passwordRef} placeholder="Password"/>
+                    <br/>
+                    <br/>
                     <Button variant="outlined" className="align-content-center mt-3">Sign Up</Button>
                     <br/>
                     <p className="text-secondary">Already have an account?
