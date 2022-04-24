@@ -40,6 +40,7 @@ function App() {
                                 <Route path="/profile/editprofile" element={<EditProfilePage/>}/>
                                 <Route path="/profile/following" element={<Following/>}/>
                                 <Route path="/profile/followers" element={<Followers/>}/>
+                                {/*TODO review list change to questions / just remove*/}
                                 <Route path="/profile/review" element={<Reviews/>}/>
                                 <Route path="/profile/favorites" element={<Favorites/>}/>
                             </Route>
