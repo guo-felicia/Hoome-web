@@ -1,0 +1,114 @@
+.question-container {
+    font-family: "Open Sans";
+    position: relative;
+    margin: 40px;
+    margin-top: 10px;
+}
+
+.question-block{
+    padding: 20px 0px 10px 0px;
+}
+
+.mg-top-0{
+    margin-top: 0px;
+}
+
+.wd-avatar {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin: 0px 12px 0px 0px;
+    float: left;
+}
+
+.wd-margintop-0{
+    margin-top: 0px;
+}
+
+.white{
+    color: white;
+}
+
+
+.wd-handel-15px {
+    margin:0px;
+    padding-left: 5px;
+    font-size: 15px;
+    color: rgb(110, 118, 125);
+}
+
+.center{
+    align-items: center;
+    padding-left: 15px;
+}
+
+.like{
+    float: left;
+    width: 85px;
+    height: 55px;
+    background-color: #d5a08c;
+}
+
+.dislike{
+    float: left;
+    width: 85px;
+    height: 55px;
+    background-color: darkgray;
+}
+
+.delete{
+    float: left;
+    width: 45px;
+    height: 55px;
+    background-color: #E7E3D2;
+}
+
+.icon{
+    padding: 5px;
+}
+
+.icon-font{
+    font-size: 18px;
+}
+
+.question-box{
+    margin: 10px 25px 0px 0px;
+    background-color: #A9B185;
+    padding: 10px;
+}
+
+.text-box{
+    font-family: "Open Sans";
+    font-size: 14px;
+    width: 90%;
+}
+
+.post-button{
+    float: right;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: bold;
+    width: 50px;
+    height: 40px;
+    margin: 2px 20px 0px 0px;
+}
+
+
+.grid-row {
+    width: 1350px;
+    clear: both;
+}
+
+.grid-col-left-sidebar {
+    width: 60%;
+    float: left;
+}
+.grid-col-main-content {
+    width: 10%;
+    float: left;
+}
+.grid-col-right-sidebar {
+    width: 30%;
+    float: left;
+}
+

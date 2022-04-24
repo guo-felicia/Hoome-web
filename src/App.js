@@ -13,36 +13,36 @@ import SignupPage from "./components/Login/SignupPage"
 import HouseList from "./components/search/HouseList";
 import SearchPage from "./components/search/SearchPage";
 import {StateProvider} from "./StateProvider";
-import reducer, {initialState} from "./reducers/reducer";
+import houseReducer, {initialState} from "./reducers/House-reducer";
 import SearchDetail from "./components/detail/SearchDetail";
+import {combineReducers} from "redux";
+import questionReducer from "./reducers/Question-reducer";
+import favoriteReducer from "./reducers/Favorite-reducer";
 
 
 function App() {
+    const rootReducer = combineReducers({
+        houses: houseReducer,
+        questions: questionReducer,
+        favorites: favoriteReducer
+    });
+    
     return (
         <BrowserRouter>
             <div className="container">
-                <StateProvider initialState={initialState} reducer={reducer}>
+                <StateProvider initialState={initialState} reducer={rootReducer}>
                     <Header/>
                     <Routes>
                         <Route path="/">
                             <Route index element={<Home/>}/>
                             <Route path="/profile">
                                 <Route index element={<ProfilePage/>}/>
-                                
-                                <Route path="/profile/editprofile" element={<EditProfilePage/>}>
-                                </Route>
-                                <Route path="/profile/following" element={<Following/>}>
-                                
-                                </Route>
-                                <Route path="/profile/followers" element={<Followers/>}>
-                                
-                                </Route>
-                                <Route path="/profile/review" element={<Reviews/>}>
-                                
-                                </Route>
-                                <Route path="/profile/favorites" element={<Favorites/>}>
-                                
-                                </Route>
+                                <Route path="/profile/editprofile" element={<EditProfilePage/>}/>
+                                <Route path="/profile/following" element={<Following/>}/>
+                                <Route path="/profile/followers" element={<Followers/>}/>
+                                {/*TODO review list change to questions / just remove*/}
+                                <Route path="/profile/review" element={<Reviews/>}/>
+                                <Route path="/profile/favorites" element={<Favorites/>}/>
                             </Route>
                             <Route path="explore" element={<HouseList/>}/>
                             <Route path="search" element={<SearchPage/>}/>
