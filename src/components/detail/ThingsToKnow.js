@@ -4,7 +4,7 @@ const ThingsToKnow = () => {
     return (
         <div className="row col-3-section">
             <div className="wd-column">
-                <h3>House rules</h3>
+                <h3 className="mg-top-0">House rules</h3>
                 <ul>
                     <li>Check-in: 3:00 PM - 7:00 PM</li>
                     <li>Checkout: 12:00 PM</li>
@@ -14,7 +14,7 @@ const ThingsToKnow = () => {
             
             </div>
             <div className="wd-column">
-                <h3>Health & safety</h3>
+                <h3 className="mg-top-0">Health & safety</h3>
                 <ul>
                     <li>Committed to Airbnb's enhanced
                         <span>cleaning process.</span>
@@ -29,7 +29,7 @@ const ThingsToKnow = () => {
             
             </div>
             <div className="wd-column">
-                <h3>Cancellation policy</h3>
+                <h3 className="mg-top-0">Cancellation policy</h3>
                 <ul>
                     <li>Free cancellation for 48 hours.</li>
                     <li>25% cancellation fee before 2 weeks

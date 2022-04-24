@@ -7,7 +7,7 @@ const questionReducer = (state = [], action) => {
             return action.questions;
         case DELETE:
             return state.filter(
-                question => question._id !== action.question._id);
+                question => question._id !== action.questions._id);
         case CREATE:
             return [
                 ...state,
@@ -15,7 +15,7 @@ const questionReducer = (state = [], action) => {
             ];
         case UPDATE:
             return state.map(
-                question => question._id === action.question._id ?
+                question => question._id === action.questions._id ?
                     action.question : question);
         default:
             return state;

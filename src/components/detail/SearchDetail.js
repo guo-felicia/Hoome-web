@@ -7,7 +7,7 @@ import Questions from "./Questions";
 import {combineReducers, createStore} from "redux";
 import houseReducer from "../../reducers/House-reducer";
 import questionReducer from "../../reducers/Question-reducer";
-import {Provider, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 import HouseDetail from "./HouseDetail";
 
 const SearchDetail = () => {
@@ -21,17 +21,18 @@ const SearchDetail = () => {
     
     return (
         <Provider store={store}>
-            <HouseDetail house={house}/>
-            {/*Reviews*/}
-            <h2>Reviews</h2>
-            <Reviews/>
-            {/*Questions*/}
-            <h2>Frequently Ask</h2>
-            <Questions/>
-            {/*Things to Know*/}
-            <h2>Things to Know</h2>
-            <ThingsToKnow/>
-        
+            <div className='detail'>
+                <HouseDetail house={house}/>
+                {/*Reviews*/}
+                <h2>Reviews</h2>
+                <Reviews/>
+                {/*Questions*/}
+                <h2>Frequently Ask</h2>
+                <Questions/>
+                {/*Things to Know*/}
+                <h2>Things to Know</h2>
+                <ThingsToKnow/>
+            </div>
         </Provider>);
 };
 
