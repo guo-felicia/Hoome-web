@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import {useDispatch} from "react-redux";
+import {addFavorites, findAllFavorites} from "../../actions/Favorites-actions";
 
 const HouseDetail = ({house}) => {
+    const [favorites] = useState([]);
+    
+    const dispatch = useDispatch();
+    useEffect(() =>
+        findAllFavorites(dispatch));
+    
     return (
         <div className='detail'>
             <h2 className='bg'>{house.name}</h2>
@@ -15,7 +23,8 @@ const HouseDetail = ({house}) => {
                 <p>{house.reviewsCount} reviews</p>
                 <p className='middle_dot'> · </p>
                 <p>{house.address}</p>
-                <div className="heart">
+                {/*Favorites Button*/}
+                <div className="heart" onClick={() => addFavorites(dispatch, [...favorites, house])}>
                     <FavoriteBorderIcon/>
                     <p className='heart_text'>save</p>
                 </div>
@@ -31,15 +40,21 @@ const HouseDetail = ({house}) => {
                     <p>{"Beds: " + house.beds + "  ·  Bedrooms: " + house.bedrooms + "  ·  Bathrooms: " + house.bathrooms}</p>
                     <p>___</p>
                     <h3 className='banner_title'>Amenities</h3>
-                    <ul>
+                    <ul className="mg-top-0">
+                        <li>Wifi</li>
+                        <li>A kitchen</li>
+                        <li>Self check-in</li>
                         {house.previewAmenities.map((item) =>
                             <li>
                                 {item}
                             </li>
                         )}
                     </ul>
-                    <h3 className='banner_title'>Neighborhood</h3>
-                    {house.neighborhood}
+                    <h3 className='banner_title'>Keep Safety in Mind</h3>
+                    <ul className="mg-top-0">
+                        <li>Smoke alarm & Fire extinguisher</li>
+                        <li>Emergency plan and local numbers</li>
+                    </ul>
                 
                 </div>
                 <div className='image-block'>

@@ -17,12 +17,14 @@ import houseReducer, {initialState} from "./reducers/House-reducer";
 import SearchDetail from "./components/detail/SearchDetail";
 import {combineReducers} from "redux";
 import questionReducer from "./reducers/Question-reducer";
+import favoriteReducer from "./reducers/Favorite-reducer";
 
 
 function App() {
     const rootReducer = combineReducers({
         houses: houseReducer,
-        questions: questionReducer
+        questions: questionReducer,
+        favorites: favoriteReducer
     });
     
     return (
