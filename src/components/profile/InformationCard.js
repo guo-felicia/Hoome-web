@@ -14,6 +14,7 @@ import {
     TextField, Toolbar
 } from "@mui/material";
 import {Link} from "react-router-dom";
+import Favorites from "./Favorites";
 
 const card = (
     <React.Fragment>
@@ -24,18 +25,18 @@ const card = (
             </Avatar>
             <br/>
             <div>
-                <Link to="/profile/updatephoto" style={{ textDecoration: 'none' }}>
+                <Link to="/profile/updatephoto" style={{textDecoration: 'none'}}>
                     <Typography color={"black"} align={"center"}>
                         <u>Update Photo</u>
                     </Typography>
                 </Link>
             </div>
-            <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <Box sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
                 <nav aria-label="main mailbox folders">
                     <List>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/following" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/following" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Following
                                     </Typography>
@@ -44,7 +45,7 @@ const card = (
                         </ListItem>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/followers" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/followers" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Followers
                                     </Typography>
@@ -53,12 +54,12 @@ const card = (
                         </ListItem>
                     </List>
                 </nav>
-                <Divider />
+                <Divider/>
                 <nav aria-label="secondary mailbox folders">
                     <List>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/review" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/review" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Review
                                     </Typography>
@@ -67,7 +68,7 @@ const card = (
                         </ListItem>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/favorites" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/favorites" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Favorites
                                     </Typography>
@@ -91,8 +92,8 @@ const card = (
         </CardContent>
         <CardActions>
             <Button size="small">
-                <Link to="/profile/privatepolicy" style={{ textDecoration: 'none' }}>
-                        Privacy Policy
+                <Link to="/profile/privatepolicy" style={{textDecoration: 'none'}}>
+                    Privacy Policy
                 </Link>
             </Button>
         </CardActions>
@@ -107,13 +108,13 @@ const Aboutyou = () => {
             label="About You"
             multiline
             rows={4}
-            defaultValue= {dv}
+            defaultValue={dv}
             margin="normal"
         />
     )
 }
 
-const YourLocation =  () => {
+const YourLocation = () => {
     let dv = "old information";
     return (
         <TextField
@@ -121,7 +122,7 @@ const YourLocation =  () => {
             label="Your Location"
             multiline
             rows={2}
-            defaultValue= {dv}
+            defaultValue={dv}
             margin="normal"
         />
     )
@@ -135,7 +136,7 @@ const Languages = () => {
             label="Languages You Speak"
             multiline
             rows={2}
-            defaultValue= {dv}
+            defaultValue={dv}
             margin="normal"
         />
     )
@@ -143,13 +144,13 @@ const Languages = () => {
 
 const Jobs = () => {
     let dv = "old information";
-    return(
+    return (
         <TextField
             id="yourjob"
             label="Your Job"
             multiline
             rows={2}
-            defaultValue= {dv}
+            defaultValue={dv}
             margin="normal"
         />
     )
@@ -173,16 +174,16 @@ const EditProfile = () => {
                     <Jobs/>
                 </div>
                 <br/>
-                <Toolbar sx={{ justifyContent: "space-between" }}>
+                <Toolbar sx={{justifyContent: "space-between"}}>
                     <Button variant="outlined">
-                        <Link to="/profile" style={{ textDecoration: 'none' }}>
+                        <Link to="/profile" style={{textDecoration: 'none'}}>
                             <Typography color={"grey"}>
                                 Saved
                             </Typography>
                         </Link>
                     </Button>
                     <Button variant="outlined">
-                        <Link to="/profile" style={{ textDecoration: 'none' }}>
+                        <Link to="/profile" style={{textDecoration: 'none'}}>
                             <Typography color={"grey"}>
                                 Cancel
                             </Typography>
@@ -198,9 +199,9 @@ const ProfileInfo = () => {
     const username = "Caelan"; // HD now
     return (
         <Grid container direction="column" item xs={7} align="center">
-            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
+            <Box sx={{fontSize: 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
             <br/>
-            <Link to="/profile/editprofile" style={{ textDecoration: 'none' }}>
+            <Link to="/profile/editprofile" style={{textDecoration: 'none'}}>
                 <Typography color={"black"}>
                     <u>Edit Your Profile</u>
                 </Typography>
@@ -213,7 +214,7 @@ const ProfileInfoEdit = () => {
     const username = "Caelan"; // HD now
     return (
         <Grid container direction="column" item xs={7} align="center">
-            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
+            <Box sx={{fontSize: 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
             <br/>
             <EditProfile/>
             <br/>
@@ -230,13 +231,17 @@ export default function ProfilePage() {
             </Box>
             <Box gridColumn="span 8" marginRight={15}>
                 <ProfileInfo/>
+                
+                {/*TODO hide when other people check it*/}
+                <Favorites/>
+                
             </Box>
         </Box>
     )
 }
 
 export function EditProfilePage() {
-    return(
+    return (
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
             <Box gridColumn="span 4" marginLeft={15}>
                 <SideBar/>
@@ -248,9 +253,9 @@ export function EditProfilePage() {
     )
 }
 
-const SideBar = ()  => {
+const SideBar = () => {
     return (
-        <Box sx={{ minWidth: 275 }}>
+        <Box sx={{minWidth: 275}}>
             <Card variant="outlined">{card}</Card>
         </Box>
     );

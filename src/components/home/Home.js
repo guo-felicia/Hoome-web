@@ -11,7 +11,6 @@ function Home() {
         <div className='home'>
             <Banner/>
             {/*TODO ADD CHECK: only display when log-in*/}
-            <h2>My Favorites</h2>
             <div className="favorite-box">
                 <Favorites/>
             </div>

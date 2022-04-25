@@ -3,6 +3,7 @@
 }
 
 .home__section {
+    margin-top: 20px;
     width: 1180px;
     display: flex;
     padding: 30px;
@@ -29,8 +30,8 @@
 }
 
 .favorite-box {
-    background-color: #d5a08c;
     margin-left: 13px;
     display: block;
-    width: 1280px;
+    width: 1380px;
+    margin-bottom: 50px;
 }

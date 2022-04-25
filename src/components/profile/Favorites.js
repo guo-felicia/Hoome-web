@@ -41,22 +41,25 @@ export default function Favorites() {
     
     // HD here. Just the initial no data page.
     return (
-        <div className="favorite-box">{
-            /*<EmptyFavorites/>*/}
-            {
-                favorites.map && favorites.map(favorite =>
-                    <div className=''>
-                        <FavoritesCard
-                            favorites = {favorite}
-                            src={favorite.images[0]}
-                            title={favorite.name}
-                            description={"Beds: " + favorite.beds + "  ·  Bedrooms: " + favorite.bedrooms + "  ·  Bathrooms: " + favorite.bathrooms}
-                            price={favorite.rating}
-                        />
-                    </div>
-                )}
-        </div>
-    
+        <>
+            
+            <h2 className="f-title">My Favorites</h2>
+            <div className="games-scroll">
+                {/*<EmptyFavorites/>*/}
+                {
+                    favorites.map && favorites.map(favorite =>
+                        <div className=''>
+                            <FavoritesCard
+                                favorites={favorite}
+                                src={favorite.images[0]}
+                                title={favorite.name}
+                                description={"Beds: " + favorite.beds + "  ·  Bedrooms: " + favorite.bedrooms + "  ·  Bathrooms: " + favorite.bathrooms}
+                                price={favorite.rating}
+                            />
+                        </div>
+                    )}
+            </div>
+        </>
     
     )
 }
