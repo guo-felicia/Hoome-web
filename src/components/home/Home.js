@@ -1,17 +1,21 @@
 import React from 'react';
 import '../../style/Home.css';
 import Banner from './Banner'
-import Card from './Card'
 import Card1 from '../../img/card1.png';
 import Card2 from '../../img/card2.png';
 import Card3 from '../../img/card3.png';
-
-// ES7 snippets to do 'rfce'
+import Favorites from "../profile/Favorites";
 
 function Home() {
     return (
         <div className='home'>
             <Banner/>
+            {/*TODO ADD CHECK: only display when log-in*/}
+            <h2>My Favorites</h2>
+            <div className="favorite-box">
+                <Favorites/>
+            </div>
+            
             <div className='home__section'>
                 {/*<Card></Card>*/}
                 <div className="card size">

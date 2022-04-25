@@ -6,7 +6,6 @@ import {createQuestion, deleteQuestion, findAllQuestions, updateQuestion} from "
 const Questions = () => {
     const question = useSelector(
         state => state.questions);
-    
     // create a new state variable with new tuit data
     const [newQuestion, setNewQuestion] =
         useState({question: 'New Question'});

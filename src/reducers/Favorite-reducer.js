@@ -7,7 +7,7 @@ const favoriteReducer = (state = [], action) => {
             return action.favorites;
         case DELETE_FAVORITES:
             return state.filter(
-                question => question._id !== action.favorites._id);
+                favorite => favorite._id !== action.favorites._id);
         case ADD_FAVORITES:
             return [
                 ...state,

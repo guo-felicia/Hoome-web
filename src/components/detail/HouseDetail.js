@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addFavorites, findAllFavorites} from "../../actions/Favorites-actions";
+import Card from "../home/Card";
 
 const HouseDetail = ({house}) => {
-    const [favorites] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     
     const dispatch = useDispatch();
     useEffect(() =>
         findAllFavorites(dispatch));
+    
+    const addFavoritesHandler =(house)=>{
+        const newFavoritesList = [...favorites, house];
+        setFavorites(newFavoritesList);
+        addFavorites(dispatch,favorites)
+    }
     
     return (
         <div className='detail'>
@@ -24,7 +31,7 @@ const HouseDetail = ({house}) => {
                 <p className='middle_dot'> · </p>
                 <p>{house.address}</p>
                 {/*Favorites Button*/}
-                <div className="heart" onClick={() => addFavorites(dispatch, [...favorites, house])}>
+                <div className="heart" onClick={() => addFavoritesHandler(house)}>
                     <FavoriteBorderIcon/>
                     <p className='heart_text'>save</p>
                 </div>
@@ -58,11 +65,12 @@ const HouseDetail = ({house}) => {
                 
                 </div>
                 <div className='image-block'>
-                    {house.images.map((image) => <div className='column'>
+                    {house.images.map((image) => <div className=''>
                         <img className='img' src={image} alt=""/>
-                    </div>)}
+                    </div>)}column
                 </div>
             </div>
+            
         </div>
     );
 };
