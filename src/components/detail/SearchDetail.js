@@ -25,13 +25,11 @@ const SearchDetail = () => {
         <Provider store={store}>
             <div className='detail'>
                 <HouseDetail house={house}/>
-                {/*Questions*/}
-                <h2 className="padding-top-20">Frequently Ask</h2>
-                <Questions/>
-                <Favorites/>
-                {/*Things to Know*/}
-                <h2>Things to Know</h2>
-                <ThingsToKnow/>
+                <div className="searchDetail-bg">
+                    <Questions/>
+                    <ThingsToKnow/>
+                </div>
+                
             </div>
         </Provider>);
 };

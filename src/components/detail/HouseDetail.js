@@ -31,9 +31,9 @@ const HouseDetail = ({house}) => {
                 <p className='middle_dot'> · </p>
                 <p>{house.address}</p>
                 {/*Favorites Button*/}
-                <div className="heart" onClick={() => addFavoritesHandler(house)}>
+                <div className="heart heart_text" onClick={() => addFavoritesHandler(house)}>
                     <FavoriteBorderIcon/>
-                    <p className='heart_text'>save</p>
+                    <p className="padding-favorite">favorite</p>
                 </div>
             </div>
             
@@ -65,9 +65,9 @@ const HouseDetail = ({house}) => {
                 
                 </div>
                 <div className='image-block'>
-                    {house.images.map((image) => <div className=''>
+                    {house.images.map((image) => <div className='column'>
                         <img className='img' src={image} alt=""/>
-                    </div>)}column
+                    </div>)}
                 </div>
             </div>
             

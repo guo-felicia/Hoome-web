@@ -2,7 +2,8 @@ import React from 'react';
 
 const ThingsToKnow = () => {
     return (
-        <div className="row col-3-section">
+        <div className="row col-3-section thingsToKnowBG">
+            <h2>Things to Know</h2>
             <div className="wd-column">
                 <h3 className="mg-top-0">House rules</h3>
                 <ul>

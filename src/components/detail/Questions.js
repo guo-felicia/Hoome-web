@@ -18,13 +18,14 @@ const Questions = () => {
             {/*TODO log-in check, true - display this text entering area*/}
             {/*TEXT ENTERING AREA*/}
             <div className="question-box">
-            <textarea className="text-box"
-                      placeholder="Type your questions here"
-                      onChange={(e) =>
-                          setNewQuestion({
-                              ...newQuestion,
-                              question: e.target.value
-                          })}></textarea>
+                <h2 className="question-title">Frequently Ask</h2>
+                <textarea className="text-box"
+                          placeholder="Type your questions here"
+                          onChange={(e) =>
+                              setNewQuestion({
+                                  ...newQuestion,
+                                  question: e.target.value
+                              })}></textarea>
                 
                 {/*TUIT BUTTON*/}
                 <button className="post-button"
@@ -47,7 +48,7 @@ const Questions = () => {
                         </div>
                         <div className="grid-col-right-sidebar bg-color-green fg-color-white action-box">
                             <div className="like">
-                                <p className="center icon-font">
+                                <p className="center icon-font hover">
                                     <i onClick={() => updateQuestion(dispatch, {
                                         ...question,
                                         likes: question.likes + 1
@@ -56,7 +57,7 @@ const Questions = () => {
                                 </p>
                             </div>
                             <div className="dislike">
-                                <p className="center icon-font">
+                                <p className="center icon-font hover">
                                     <i onClick={() => updateQuestion(dispatch, {
                                         ...question,
                                         dislikes: question.dislikes + 1
@@ -66,7 +67,7 @@ const Questions = () => {
                             </div>
                             {/*TODO log-in check, current user posted this post (can use userName) if yes: display delete button*/}
                             <div className="delete">
-                                <p className="center icon-font">
+                                <p className="center icon-font hover">
                                     <i className="fas fa-trash float-end"
                                        onClick={() => deleteQuestion(
                                            dispatch, question)}></i>

@@ -9,6 +9,12 @@
     padding: 20px 0px 10px 0px;
 }
 
+.question-title{
+    padding: 5px;
+    margin-bottom: 10px;
+    color: #282c34;
+}
+
 .mg-top-0{
     margin-top: 0px;
 }
@@ -46,21 +52,26 @@
     float: left;
     width: 85px;
     height: 55px;
-    background-color: #d5a08c;
+    /*background-color: #d5a08c;*/
+}
+
+.hover:hover {
+    color: #AC3C3C;
+    transform: scale(1.2);
 }
 
 .dislike{
     float: left;
     width: 85px;
     height: 55px;
-    background-color: darkgray;
+    /*background-color: darkgray;*/
 }
 
 .delete{
     float: left;
     width: 45px;
     height: 55px;
-    background-color: #E7E3D2;
+    /*background-color: #E7E3D2;*/
 }
 
 .icon{
@@ -72,8 +83,9 @@
 }
 
 .question-box{
-    margin: 10px 25px 0px 0px;
-    background-color: #A9B185;
+    margin: 50px 25px 0px 0px;
+    /*border: 2px solid #A9B185;*/
+    background-color: #dae1b4;
     padding: 10px;
 }
 
@@ -95,8 +107,11 @@
 
 
 .grid-row {
-    width: 1350px;
+    width: 1150px;
     clear: both;
+    height: 50px;
+    border-bottom: 2px solid #A9B185;
+    /*background-color: #AC3C3C;*/
 }
 
 .grid-col-left-sidebar {
@@ -104,11 +119,11 @@
     float: left;
 }
 .grid-col-main-content {
-    width: 10%;
+    width: 230px;
     float: left;
 }
 .grid-col-right-sidebar {
-    width: 30%;
+    width: 220px;
     float: left;
 }
 
