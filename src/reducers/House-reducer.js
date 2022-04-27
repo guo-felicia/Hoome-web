@@ -1,5 +1,3 @@
-
-
 export const initialState = {
     term: null,
 };
@@ -7,7 +5,7 @@ export const initialState = {
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 
 
-const reducer = (state = [], action) => {
+const houseReducer = (state = [], action) => {
     switch (action.type) {
         case SET_SEARCH_TERM:
             return {
@@ -19,4 +17,4 @@ const reducer = (state = [], action) => {
     }
 }
 
-export default reducer;
+export default houseReducer;

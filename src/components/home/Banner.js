@@ -12,7 +12,7 @@ function Banner() {
                 <p className='news'>Help house 100,000 refugees fleeing Ukrain</p>
             </div>
             <div className='banner__info'>
-                <h2>A home for you during pandemic</h2>
+                <h2 className="pd-left-0">A home for you during pandemic</h2>
                 <h5>
                     Find a warm space for you. Whenever, and wherever you are.
                 </h5>
