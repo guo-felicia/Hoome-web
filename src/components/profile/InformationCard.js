@@ -13,7 +13,9 @@ import {
     ListItemButton,
     TextField, Toolbar
 } from "@mui/material";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {profile, signin} from "../../services/auth-service";
 
 const card = (
     <React.Fragment>
@@ -223,8 +225,22 @@ const ProfileInfoEdit = () => {
 
 
 export default function ProfilePage() {
+    const [currentUser, setCurrentUser] = useState({})
+    const navigate = useNavigate()
+    const fetchCurrentUser = async () => {
+        try {
+            const currentUser = await profile()
+            setCurrentUser(currentUser)
+        } catch (e) {
+            navigate('/')
+        }
+    }
+    useEffect(() => {
+        fetchCurrentUser()
+    }, [])
     return (
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
+            <div>{currentUser.email}</div>
             <Box gridColumn="span 4" marginLeft={15}>
                 <SideBar/>
             </Box>

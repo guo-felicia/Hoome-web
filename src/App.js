@@ -48,7 +48,7 @@ function App() {
                             <Route path="search" element={<SearchPage/>}/>
                             <Route path="search/:id" element={<SearchDetail/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
-                            <Route path="/signup" element={<SignupPage/>}/>
+                            <Route path="/register" element={<SignupPage/>}/>
                         </Route>
                     </Routes>
                     <Footer/>
