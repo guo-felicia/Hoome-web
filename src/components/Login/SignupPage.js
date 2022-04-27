@@ -10,7 +10,6 @@ import Box from "@mui/material/Box";
 import {signup} from "../../services/auth-service";
 
 export default function SignupPage() {
-    const usernameRef = useRef();
     const passwordRef = useRef();
     const emailRef = useRef();
     const navigate = useNavigate();
@@ -18,12 +17,9 @@ export default function SignupPage() {
         try {
             await signup(
                 emailRef.current.value,
-                usernameRef.current.value,
                 passwordRef.current.value
             )
-            console.log('finished sign up')
             navigate('/profile')
-            console.log('navigate to profile')
         } catch (e) {
             alert('sign up failed')
         }
@@ -36,8 +32,6 @@ export default function SignupPage() {
                     <Box sx={{fontSize : 'h3.fontSize'}} m={3} >Welcome to Hoome</Box>
                     <Box sx={{fontSize : 'h5.fontSize'}} mb={2} color={"gray"}>Please Sign Up</Box>
                     <Input inputRef={emailRef} placeholder="Email"/>
-                    <br/>
-                    <Input inputRef={usernameRef} placeholder="Username"/>
                     <br/>
                     <Input inputRef={passwordRef} placeholder="Password"/>
                     <br/>

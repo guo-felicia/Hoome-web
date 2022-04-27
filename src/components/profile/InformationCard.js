@@ -14,8 +14,8 @@ import {
     TextField, Toolbar
 } from "@mui/material";
 import {Link, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {profile, signin} from "../../services/auth-service";
+import {useEffect, useRef, useState} from "react";
+import {profile, signin, updateUser, updateUserInfo} from "../../services/auth-service";
 
 const card = (
     <React.Fragment>
@@ -101,131 +101,10 @@ const card = (
     </React.Fragment>
 );
 
-const Aboutyou = () => {
-    let dv = "old information";
-    return (
-        <TextField
-            id="aboutyou"
-            label="About You"
-            multiline
-            rows={4}
-            defaultValue= {dv}
-            margin="normal"
-        />
-    )
-}
-
-const YourLocation =  () => {
-    let dv = "old information";
-    return (
-        <TextField
-            id="location"
-            label="Your Location"
-            multiline
-            rows={2}
-            defaultValue= {dv}
-            margin="normal"
-        />
-    )
-}
-
-const Languages = () => {
-    let dv = "old information";
-    return (
-        <TextField
-            id="languageyouspeak"
-            label="Languages You Speak"
-            multiline
-            rows={2}
-            defaultValue= {dv}
-            margin="normal"
-        />
-    )
-}
-
-const Jobs = () => {
-    let dv = "old information";
-    return(
-        <TextField
-            id="yourjob"
-            label="Your Job"
-            multiline
-            rows={2}
-            defaultValue= {dv}
-            margin="normal"
-        />
-    )
-}
-
-const EditProfile = () => {
-    // HD in 2 button. Should actually send information back to server, then get from server
-    return (
-        <>
-            <Grid container direction="column" item xs={7} align="center">
-                <div>
-                    <Aboutyou/>
-                </div>
-                <div>
-                    <YourLocation/>
-                </div>
-                <div>
-                    <Languages/>
-                </div>
-                <div>
-                    <Jobs/>
-                </div>
-                <br/>
-                <Toolbar sx={{ justifyContent: "space-between" }}>
-                    <Button variant="outlined">
-                        <Link to="/profile" style={{ textDecoration: 'none' }}>
-                            <Typography color={"grey"}>
-                                Saved
-                            </Typography>
-                        </Link>
-                    </Button>
-                    <Button variant="outlined">
-                        <Link to="/profile" style={{ textDecoration: 'none' }}>
-                            <Typography color={"grey"}>
-                                Cancel
-                            </Typography>
-                        </Link>
-                    </Button>
-                </Toolbar>
-            </Grid>
-        </>
-    )
-}
-
-const ProfileInfo = () => {
-    const username = "Caelan"; // HD now
-    return (
-        <Grid container direction="column" item xs={7} align="center">
-            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
-            <br/>
-            <Link to="/profile/editprofile" style={{ textDecoration: 'none' }}>
-                <Typography color={"black"}>
-                    <u>Edit Your Profile</u>
-                </Typography>
-            </Link>
-        </Grid>
-    )
-}
-
-const ProfileInfoEdit = () => {
-    const username = "Caelan"; // HD now
-    return (
-        <Grid container direction="column" item xs={7} align="center">
-            <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${username}`}</Box>
-            <br/>
-            <EditProfile/>
-            <br/>
-        </Grid>
-    )
-}
-
 
 export default function ProfilePage() {
     const [currentUser, setCurrentUser] = useState({})
+    const [edit, setEdit] = useState(false)
     const navigate = useNavigate()
     const fetchCurrentUser = async () => {
         try {
@@ -238,27 +117,136 @@ export default function ProfilePage() {
     useEffect(() => {
         fetchCurrentUser()
     }, [])
+
+    const ProfileInfoEdit = () => {
+        const handleSave = async () => {
+            try {
+                let newProfile = {email: currentUser.email, password: currentUser.password,
+                    firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
+                    aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
+                    languages: languagesRef.current.value, jobs: jobsRef.current.value}
+                await updateUserInfo(
+                    newProfile
+                )
+                setEdit(false)
+                setCurrentUser(newProfile)
+            } catch (e) {
+                alert('save profile failed')
+            }
+        }
+        const handleCancel = () => {
+            setEdit(false)
+        }
+        const firstNameRef = useRef();
+        const lastNameRef = useRef();
+        const aboutyouRef = useRef();
+        const locationRef = useRef();
+        const languagesRef = useRef();
+        const jobsRef = useRef();
+        return (
+            <Grid container direction="column" item xs={7} align="center">
+                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${currentUser.firstName}`}</Box>
+                <br/>
+                <>
+                    <Grid container direction="column" item xs={7} align="center">
+                        <div>
+                            <>
+                                <TextField id='nameText'
+                                           label='Frist Name'
+                                           margin='normal'
+                                           inputRef={firstNameRef}
+                                            defaultValue={currentUser.firstName}>
+                                </TextField>
+                                <TextField id='nameText'
+                                           label='Last Name'
+                                           margin='normal'
+                                            inputRef={lastNameRef}
+                                            defaultValue={currentUser.lastName}>
+                                </TextField>
+                            </>
+                        </div>
+                        <div>
+                            <TextField
+                                id="aboutyou"
+                                label="About You"
+                                multiline
+                                rows={4}
+                                margin="normal"
+                                inputRef={aboutyouRef}
+                                defaultValue={currentUser.aboutyou}
+                            >
+                            </TextField>
+                        </div>
+                        <div>
+                            <TextField
+                                id="location"
+                                label="Your Location"
+                                multiline
+                                rows={2}
+                                margin="normal"
+                                inputRef={locationRef}
+                                defaultValue={currentUser.location}
+                            >
+                            </TextField>
+                        </div>
+                        <div>
+                            <TextField
+                                id="languageyouspeak"
+                                label="Languages You Speak"
+                                multiline
+                                rows={2}
+                                margin="normal"
+                                inputRef={languagesRef}
+                                defaultValue={currentUser.languages}
+                            >
+                            </TextField>
+                        </div>
+                        <div>
+                            <TextField
+                                id="yourjob"
+                                label="Your Job"
+                                multiline
+                                rows={2}
+                                margin="normal"
+                                inputRef={jobsRef}
+                                defaultValue={currentUser.jobs}
+                            >
+                            </TextField>
+                        </div>
+                        <br/>
+                        <Toolbar sx={{ justifyContent: "space-between" }}>
+                            <Button variant="outlined" onClick={handleSave}>
+                                Saved
+                            </Button>
+                            <Button variant="outlined" onClick={handleCancel}>
+                                Cancel
+                            </Button>
+                        </Toolbar>
+                    </Grid>
+                </>
+                <br/>
+            </Grid>
+        )
+    }
+
+    const ProfileInfo = () => {
+        return (
+            <Grid container direction="column" item xs={7} align="center">
+                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${currentUser.firstName}`}</Box>
+                <br/>
+                <Button variant="text" onClick={() => {setEdit(true)}}>Edit Your Profile</Button>
+            </Grid>
+        )
+    }
+
     return (
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
-            <div>{currentUser.email}</div>
             <Box gridColumn="span 4" marginLeft={15}>
                 <SideBar/>
             </Box>
             <Box gridColumn="span 8" marginRight={15}>
-                <ProfileInfo/>
-            </Box>
-        </Box>
-    )
-}
-
-export function EditProfilePage() {
-    return(
-        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
-            <Box gridColumn="span 4" marginLeft={15}>
-                <SideBar/>
-            </Box>
-            <Box gridColumn="span 8" marginRight={15}>
-                <ProfileInfoEdit/>
+                {edit && <ProfileInfoEdit/>}
+                {!edit && <ProfileInfo/>}
             </Box>
         </Box>
     )

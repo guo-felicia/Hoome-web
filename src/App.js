@@ -37,7 +37,7 @@ function App() {
                             <Route index element={<Home/>}/>
                             <Route path="/profile">
                                 <Route index element={<ProfilePage/>}/>
-                                <Route path="/profile/editprofile" element={<EditProfilePage/>}/>
+                                {/*<Route path="/profile/editprofile" element={<EditProfilePage/>}/>*/}
                                 <Route path="/profile/following" element={<Following/>}/>
                                 <Route path="/profile/followers" element={<Followers/>}/>
                                 {/*TODO review list change to questions / just remove*/}
