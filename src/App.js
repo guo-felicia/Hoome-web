@@ -8,6 +8,7 @@ import Following from "./components/profile/Following";
 import Followers from "./components/profile/Followers";
 import Reviews from "./components/profile/Reviews";
 import Favorites from "./components/profile/Favorites";
+import OthersProfile from "./components/profile/OthersProfile"
 import LoginPage from "./components/Login/LoginPage";
 import SignupPage from "./components/Login/SignupPage"
 import HouseList from "./components/search/HouseList";
@@ -18,6 +19,8 @@ import SearchDetail from "./components/detail/SearchDetail";
 import {combineReducers} from "redux";
 import questionReducer from "./reducers/Question-reducer";
 import favoriteReducer from "./reducers/Favorite-reducer";
+import {ProfileProvider} from "./ProfileProvider";
+import SecureRoute from "./SecureRoute";
 
 
 function App() {
@@ -30,29 +33,32 @@ function App() {
     return (
         <BrowserRouter>
             <div className="container">
+                <ProfileProvider>
                 <StateProvider initialState={initialState} reducer={rootReducer}>
                     <Header/>
                     <Routes>
                         <Route path="/">
                             <Route index element={<Home/>}/>
                             <Route path="/profile">
-                                <Route index element={<ProfilePage/>}/>
-                                {/*<Route path="/profile/editprofile" element={<EditProfilePage/>}/>*/}
-                                <Route path="/profile/following" element={<Following/>}/>
-                                <Route path="/profile/followers" element={<Followers/>}/>
-                                {/*TODO review list change to questions / just remove*/}
-                                <Route path="/profile/review" element={<Reviews/>}/>
-                                <Route path="/profile/favorites" element={<Favorites/>}/>
+                                    <Route index element={<SecureRoute> <ProfilePage/> </SecureRoute>}/>
+                                    {/*<Route path="/profile/editprofile" element={<EditProfilePage/>}/>*/}
+                                    <Route path="/profile/following" element={<Following/>}/>
+                                    <Route path="/profile/followers" element={<Followers/>}/>
+                                    {/*TODO review list change to questions / just remove*/}
+                                    <Route path="/profile/review" element={<Reviews/>}/>
+                                    <Route path="/profile/favorites" element={<Favorites/>}/>
                             </Route>
                             <Route path="explore" element={<HouseList/>}/>
                             <Route path="search" element={<SearchPage/>}/>
                             <Route path="search/:id" element={<SearchDetail/>}/>
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="/register" element={<SignupPage/>}/>
+                            <Route path="profile/:id" element={<OthersProfile />}/>
                         </Route>
                     </Routes>
                     <Footer/>
                 </StateProvider>
+                </ProfileProvider>
             </div>
         </BrowserRouter>);
 }

@@ -2,8 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import '../../style/Questions.css'
 import {createQuestion, deleteQuestion, findAllQuestions, updateQuestion} from "../../actions/Question-actions";
+import SecureContent from "../../SecureContent";
+import {useProfile} from "../../ProfileProvider";
+import {Link} from "react-router-dom";
 
 const Questions = () => {
+    const {profile} = useProfile()
     const question = useSelector(
         state => state.questions);
     
@@ -13,34 +17,48 @@ const Questions = () => {
     const dispatch = useDispatch();
     useEffect(() =>
         findAllQuestions(dispatch));
+
+    const handlePost = () => {
+        if (profile) {
+            const data = {profile, newQuestion}
+            createQuestion(dispatch, data)
+        }
+        else {
+            alert('how did you get the post button without login???')
+        }
+    }
     
     return (
         <div className='question-container'>
             {/*TODO log-in check, true - display this text entering area*/}
             {/*TEXT ENTERING AREA*/}
-            <div className="question-box">
+            <SecureContent>
+                <div className="question-box">
             <textarea className="text-box"
-                      placeholder="Type your questions here"
-                      onChange={(e) =>
-                          setNewQuestion({
-                              ...newQuestion,
-                              question: e.target.value
-                          })}></textarea>
-                
-                {/*TUIT BUTTON*/}
-                <button className="post-button"
-                        onClick={() =>
-                            createQuestion(dispatch, newQuestion)}>
-                    Post
-                </button>
-            </div>
+                placeholder="Type your questions here"
+                onChange={(e) =>
+                setNewQuestion({
+                ...newQuestion,
+                question: e.target.value
+                })}/>
+
+                    {/*TUIT BUTTON*/}
+                    <button className="post-button"
+                            onClick={() =>
+                                handlePost()}>
+                        Post
+                    </button>
+                </div>
+            </SecureContent>
             
             {
                 question.map && question.map(question =>
                     <div className='question-block grid-row'>
                         <div className="grid-col-left-sidebar bg-color-yellow">
+                            <Link to={`/profile/${question.postedBy.username}`}>
                             <img className="wd-avatar" src={question["avatar"]} alt="Avatar"/>
-                            <p className="wd-handel-15px">{question.postedBy.username}</p>
+                            </Link>
+                            <p className="wd-handel-15px">{question.postedBy.firstName}</p>
                             <h3 className="wd-margintop-0">{question.question}</h3>
                         </div>
                         <div className="grid-col-main-content bg-color-blue fg-color-white">
@@ -50,18 +68,18 @@ const Questions = () => {
                             <div className="like">
                                 <p className="center icon-font">
                                     <i onClick={() => updateQuestion(dispatch, {
-                                        ...question,
-                                        likes: question.likes + 1
-                                    })} className="far fa-thumbs-up icon"></i>
+                                    ...question,
+                                    likes: question.likes + 1
+                                    })} className="far fa-thumbs-up icon"/>
                                     {question.likes}
                                 </p>
                             </div>
                             <div className="dislike">
                                 <p className="center icon-font">
                                     <i onClick={() => updateQuestion(dispatch, {
-                                        ...question,
-                                        dislikes: question.dislikes + 1
-                                    })} className="far fa-thumbs-down icon"></i>
+                                    ...question,
+                                    dislikes: question.dislikes + 1
+                                    })} className="far fa-thumbs-down icon"/>
                                     {question.dislikes}
                                 </p>
                             </div>
@@ -69,16 +87,14 @@ const Questions = () => {
                             <div className="delete">
                                 <p className="center icon-font">
                                     <i className="fas fa-trash float-end"
-                                       onClick={() => deleteQuestion(
-                                           dispatch, question)}></i>
+                                    onClick={() => deleteQuestion(
+                                    dispatch, question)}/>
                                 </p>
                             </div>
                         </div>
                     </div>
                 )
             }
-        
-        
         </div>);
 };
 

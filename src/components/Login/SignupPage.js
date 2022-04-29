@@ -7,16 +7,19 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import {Link, useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
-import {signup} from "../../services/auth-service";
+import {useProfile} from "../../ProfileProvider";
 
 export default function SignupPage() {
     const passwordRef = useRef();
     const emailRef = useRef();
+    const usernameRef = useRef();
     const navigate = useNavigate();
+    const {signup} = useProfile();
     const handleSignup = async () => {
         try {
             await signup(
                 emailRef.current.value,
+                usernameRef.current.value,
                 passwordRef.current.value
             )
             navigate('/profile')
@@ -32,6 +35,8 @@ export default function SignupPage() {
                     <Box sx={{fontSize : 'h3.fontSize'}} m={3} >Welcome to Hoome</Box>
                     <Box sx={{fontSize : 'h5.fontSize'}} mb={2} color={"gray"}>Please Sign Up</Box>
                     <Input inputRef={emailRef} placeholder="Email"/>
+                    <br/>
+                    <Input inputRef={usernameRef} placeholder="Username"/>
                     <br/>
                     <Input inputRef={passwordRef} placeholder="Password"/>
                     <br/>

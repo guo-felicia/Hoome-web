@@ -2,8 +2,8 @@ import axios from "axios";
 const API_URL = "http://localhost:4000/api"
 const api = axios.create({withCredentials: true})
 
-export const signup = async (email, password) => {
-    const response = await api.post(`${API_URL}/signup`, {email, password})
+export const signup = async (email, username, password) => {
+    const response = await api.post(`${API_URL}/signup`, {email, username, password})
     return response.data
 }
 
@@ -25,5 +25,11 @@ export const logout = async () => {
 
 export const updateUserInfo = async (updatedUser) => {
     const response = await api.put(`${API_URL}/profile`, updatedUser)
+    return response.data
+}
+
+export const findUserByUsername = async (username) => {
+    console.log('been called')
+    const response = await api.get(`${API_URL}/profile/${username}`)
     return response.data
 }

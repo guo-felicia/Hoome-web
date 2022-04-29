@@ -7,12 +7,13 @@ import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
 import {Link, useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
-import {signin} from "../../services/auth-service";
+import {useProfile} from "../../ProfileProvider";
 
 export default function LoginPage() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const navigate = useNavigate();
+    const {signin} = useProfile()
     const handleSignin = async () => {
         try {
             await signin(

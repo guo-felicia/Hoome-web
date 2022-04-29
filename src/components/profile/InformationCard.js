@@ -13,9 +13,10 @@ import {
     ListItemButton,
     TextField, Toolbar
 } from "@mui/material";
-import {Link, useNavigate} from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
-import {profile, signin, updateUser, updateUserInfo} from "../../services/auth-service";
+import {Link} from "react-router-dom";
+import {useRef, useState} from "react";
+// import {profile, signin, updateUser, updateUserInfo} from "../../services/auth-service";
+import {useProfile} from "../../ProfileProvider";
 
 const card = (
     <React.Fragment>
@@ -103,33 +104,34 @@ const card = (
 
 
 export default function ProfilePage() {
-    const [currentUser, setCurrentUser] = useState({})
+    // const [currentUser, setCurrentUser] = useState({})
+    const {profile, updateProfile} = useProfile()
     const [edit, setEdit] = useState(false)
-    const navigate = useNavigate()
-    const fetchCurrentUser = async () => {
-        try {
-            const currentUser = await profile()
-            setCurrentUser(currentUser)
-        } catch (e) {
-            navigate('/')
-        }
-    }
-    useEffect(() => {
-        fetchCurrentUser()
-    }, [])
+    // const navigate = useNavigate()
+    // const fetchProfile = async () => {
+    //     try {
+    //         await checkLoggedIn()
+    //     }
+    //     catch (e) {
+    //         navigate('/')
+    //     }
+    // }
+    // fetchProfile()
+    // useEffect(() => {
+    //     console.log('how to make you work')
+    // }, [checkLoggedIn])
 
     const ProfileInfoEdit = () => {
         const handleSave = async () => {
             try {
-                let newProfile = {email: currentUser.email, password: currentUser.password,
+                let newProfile = {email: profile.email, username: profile.username, password: passwordRef.current.value,
                     firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
                     aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
                     languages: languagesRef.current.value, jobs: jobsRef.current.value}
-                await updateUserInfo(
+                await updateProfile(
                     newProfile
                 )
                 setEdit(false)
-                setCurrentUser(newProfile)
             } catch (e) {
                 alert('save profile failed')
             }
@@ -137,6 +139,7 @@ export default function ProfilePage() {
         const handleCancel = () => {
             setEdit(false)
         }
+        const passwordRef = useRef();
         const firstNameRef = useRef();
         const lastNameRef = useRef();
         const aboutyouRef = useRef();
@@ -145,25 +148,33 @@ export default function ProfilePage() {
         const jobsRef = useRef();
         return (
             <Grid container direction="column" item xs={7} align="center">
-                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${currentUser.firstName}`}</Box>
+                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${profile.firstName}`}</Box>
                 <br/>
                 <>
                     <Grid container direction="column" item xs={7} align="center">
                         <div>
-                            <>
+                            <TextField id='password'
+                                       label='Password'
+                                       margin='normal'
+                                       inputRef={passwordRef}
+                                       defaultValue={profile.password}>
+                            </TextField>
+                        </div>
+                        <div>
                                 <TextField id='nameText'
                                            label='Frist Name'
                                            margin='normal'
                                            inputRef={firstNameRef}
-                                            defaultValue={currentUser.firstName}>
+                                            defaultValue={profile.firstName}>
                                 </TextField>
+                        </div>
+                        <div>
                                 <TextField id='nameText'
                                            label='Last Name'
                                            margin='normal'
                                             inputRef={lastNameRef}
-                                            defaultValue={currentUser.lastName}>
+                                            defaultValue={profile.lastName}>
                                 </TextField>
-                            </>
                         </div>
                         <div>
                             <TextField
@@ -173,7 +184,7 @@ export default function ProfilePage() {
                                 rows={4}
                                 margin="normal"
                                 inputRef={aboutyouRef}
-                                defaultValue={currentUser.aboutyou}
+                                defaultValue={profile.aboutyou}
                             >
                             </TextField>
                         </div>
@@ -185,7 +196,7 @@ export default function ProfilePage() {
                                 rows={2}
                                 margin="normal"
                                 inputRef={locationRef}
-                                defaultValue={currentUser.location}
+                                defaultValue={profile.location}
                             >
                             </TextField>
                         </div>
@@ -197,7 +208,7 @@ export default function ProfilePage() {
                                 rows={2}
                                 margin="normal"
                                 inputRef={languagesRef}
-                                defaultValue={currentUser.languages}
+                                defaultValue={profile.languages}
                             >
                             </TextField>
                         </div>
@@ -209,7 +220,7 @@ export default function ProfilePage() {
                                 rows={2}
                                 margin="normal"
                                 inputRef={jobsRef}
-                                defaultValue={currentUser.jobs}
+                                defaultValue={profile.jobs}
                             >
                             </TextField>
                         </div>
@@ -229,26 +240,127 @@ export default function ProfilePage() {
         )
     }
 
+    // email, and signature cannot been changed now
     const ProfileInfo = () => {
         return (
             <Grid container direction="column" item xs={7} align="center">
-                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${currentUser.firstName}`}</Box>
+                <Box sx={{fontSize : 'h3.fontSize'}}>{`Hello, ${profile.firstName}`}</Box>
                 <br/>
                 <Button variant="text" onClick={() => {setEdit(true)}}>Edit Your Profile</Button>
+                <Box>
+                    <div>
+                        <TextField id='email'
+                                   label='Email'
+                                   margin='normal'
+                                   InputProps={{
+                                       readOnly: true,
+                                   }}
+                                   defaultValue={profile.email}>
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField id='password'
+                                   label='Password'
+                                   margin='normal'
+                                   InputProps={{
+                                       readOnly: true,
+                                   }}
+                                   defaultValue={profile.password}>
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField id='firstname'
+                                   label='Frist Name'
+                                   margin='normal'
+                                   InputProps={{
+                                       readOnly: true,
+                                   }}
+                                   defaultValue={profile.firstName}>
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField id='lastname'
+                                   label='Last Name'
+                                   margin='normal'
+                                   InputProps={{
+                                       readOnly: true,
+                                   }}
+                                   defaultValue={profile.lastName}>
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField
+                            id="aboutyou"
+                            label="About You"
+                            multiline
+                            rows={4}
+                            margin="normal"
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            defaultValue={profile.aboutyou}
+                        >
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField
+                            id="location"
+                            label="Your Location"
+                            multiline
+                            rows={2}
+                            margin="normal"
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            defaultValue={profile.location}
+                        >
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField
+                            id="languageyouspeak"
+                            label="Languages You Speak"
+                            multiline
+                            rows={2}
+                            margin="normal"
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            defaultValue={profile.languages}
+                        >
+                        </TextField>
+                    </div>
+                    <div>
+                        <TextField
+                            id="yourjob"
+                            label="Your Job"
+                            multiline
+                            rows={2}
+                            margin="normal"
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                            defaultValue={profile.jobs}
+                        >
+                        </TextField>
+                    </div>
+                </Box>
             </Grid>
         )
     }
 
     return (
-        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
-            <Box gridColumn="span 4" marginLeft={15}>
-                <SideBar/>
-            </Box>
-            <Box gridColumn="span 8" marginRight={15}>
-                {edit && <ProfileInfoEdit/>}
-                {!edit && <ProfileInfo/>}
-            </Box>
-        </Box>
+        <>
+            {profile && <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
+                <Box gridColumn="span 4" marginLeft={15}>
+                    <SideBar/>
+                </Box>
+                <Box gridColumn="span 8" marginRight={15}>
+                    {edit && <ProfileInfoEdit/>}
+                    {!edit && <ProfileInfo/>}
+                </Box>
+            </Box>}
+        </>
     )
 }
 

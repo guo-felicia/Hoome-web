@@ -8,13 +8,29 @@ import {Avatar} from "@material-ui/core";
 import {Link, useNavigate} from "react-router-dom";
 import {useStateValue} from "../../StateProvider";
 import * as action from "../../reducers/House-reducer";
+import Button from "@mui/material/Button";
+import {useProfile} from "../../ProfileProvider";
 
 function Header() {
     const history = useNavigate();
     const [{item}, dispatch] = useStateValue('');
     const [endPoint, setEndPoint] = useState('');
-    
-    
+    const {signout} = useProfile()
+
+    const logout = async () => {
+        try {
+            await signout()
+        } catch (e) {
+
+        }
+        console.log()
+        history('login')
+    }
+
+    const becomeHost = async () => {
+        alert('havent completely implement this yet')
+    }
+
     const onChangeHandler = (e) => {
         setEndPoint(e.target.value)
     }
@@ -53,14 +69,29 @@ function Header() {
             
             {/*AVATAR & USER*/}
             <div className='header__right'>
-                <p className='mg10px'>Become a host</p>
+                {/*<Link to="/login" style={{ textDecoration: 'none' }}>*/}
+                {/*    <p className='mg10px'>Login</p>*/}
+                {/*</Link>*/}
+                <Button size="small" color="secondary">
+                    <Link to="/login" style={{ textDecoration: 'none' }}>
+                        <p className='mg10px'>Login</p>
+                    </Link>
+                </Button>
+                <Button size="small" color="secondary" onClick={logout}>
+                        <p className='mg10px'>Log out</p>
+                </Button>
+                <Button size="small" color="secondary" onClick={becomeHost}>
+                    <p className='mg10px'>Become a host</p>
+                </Button>
                 <div className='mg10px'>
                     <LanguageIcon/>
                     <ExpandMoreIcon/>
                 </div>
-                <div className='mg10px'>
-                    <Avatar/>
-                </div>
+                <Link to='/profile'>
+                    <div className='mg10px'>
+                        <Avatar/>
+                    </div>
+                </Link>
             </div>
         
         </div>)
