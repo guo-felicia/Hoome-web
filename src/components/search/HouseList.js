@@ -31,7 +31,7 @@ const HouseList = () => {
     
     useEffect(() => fetchMe(), [endPoint])
     
-
+    
     
     return (
         <div>
@@ -39,9 +39,9 @@ const HouseList = () => {
             {
                 container.map((house) =>
                     <button className="unset_button"
-                       onClick={() => {
-                           navigate(`/search/${house.id}`, {state: {house}})
-                       }}>
+                            onClick={() => {
+                                navigate(`/search/${house.id}`, {state: {house}})
+                            }}>
                         <div className='searchResult'>
                             <img src={house.images[0]} alt=""/>
                             <FavoriteBorderIcon className="searchResult__heart"/>
