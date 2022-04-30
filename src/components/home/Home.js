@@ -4,7 +4,7 @@ import Banner from './Banner'
 import Card1 from '../../img/card1.png';
 import Card2 from '../../img/card2.png';
 import Card3 from '../../img/card3.png';
-import Favorites from "../profile/Favorites";
+import Favorites from "./Favorites";
 
 function Home() {
     return (

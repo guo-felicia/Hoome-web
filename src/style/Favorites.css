@@ -6,10 +6,9 @@
 
 .f-card {
     width: 380px;
-    height: 330px;
+    height: 380px;
     font-family: 'Open Sans', sans-serif;
-    padding-left: 10px;
-    margin: 10px;
+    margin: 20px;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
@@ -75,6 +74,6 @@
 
 .f-pos {
     position: relative;
-    left: 310px;
-    bottom: 25px;
+    left: 300px;
+    bottom: 10px;
 }
