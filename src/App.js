@@ -36,7 +36,7 @@ function App() {
         <BrowserRouter>
             <div className="container">
                 <ProfileProvider>
-                    <StateProvider initialState={initialState} reducer={rootReducer}>
+                    <StateProvider initialState={initialState} reducer={houseReducer}>
                         <Provider store={store}>
                             <Header/>
                             <Routes>
