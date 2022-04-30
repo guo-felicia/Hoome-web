@@ -21,6 +21,15 @@
     flex-direction: column;
 }
 
+.news{
+    align-items: center;
+    max-width: fit-content;
+    /*padding-left: 400px;*/
+    padding-left: 45px;
+    font-size: medium;
+    font-weight: bold;
+}
+
 .banner__searchButton {
     background-color: white !important;
     font-weight: 900 !important;
@@ -46,12 +55,7 @@
     margin-top: 10px;
 }
 
-.news{
-    padding-left: 400px;
-    font-size: medium;
-    font-weight: bold;
-    background-color: white;
-}
+
 
 .pd-left-0{
     padding-left: 0px;

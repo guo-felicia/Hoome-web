@@ -9,7 +9,7 @@ function Banner() {
     return (
         <div className='banner'>
             <div className='banner__search'>
-                <p className='news'>Help house 100,000 refugees fleeing Ukrain</p>
+                <p className='news'>Help house 100,000 refugees fleeing Ukrain!!!!</p>
             </div>
             <div className='banner__info'>
                 <h2 className="pd-left-0">A home for you during pandemic</h2>
