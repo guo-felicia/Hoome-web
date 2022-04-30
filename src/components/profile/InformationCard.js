@@ -17,6 +17,7 @@ import {Link} from "react-router-dom";
 import {useRef, useState} from "react";
 // import {profile, signin, updateUser, updateUserInfo} from "../../services/auth-service";
 import {useProfile} from "../../ProfileProvider";
+import Favorites from "./Favorites";
 
 const card = (
     <React.Fragment>
@@ -27,18 +28,18 @@ const card = (
             </Avatar>
             <br/>
             <div>
-                <Link to="/profile/updatephoto" style={{ textDecoration: 'none' }}>
+                <Link to="/profile/updatephoto" style={{textDecoration: 'none'}}>
                     <Typography color={"black"} align={"center"}>
                         <u>Update Photo</u>
                     </Typography>
                 </Link>
             </div>
-            <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <Box sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
                 <nav aria-label="main mailbox folders">
                     <List>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/following" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/following" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Following
                                     </Typography>
@@ -47,7 +48,7 @@ const card = (
                         </ListItem>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/followers" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/followers" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Followers
                                     </Typography>
@@ -56,12 +57,12 @@ const card = (
                         </ListItem>
                     </List>
                 </nav>
-                <Divider />
+                <Divider/>
                 <nav aria-label="secondary mailbox folders">
                     <List>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/review" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/review" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Review
                                     </Typography>
@@ -70,7 +71,7 @@ const card = (
                         </ListItem>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/favorites" style={{ textDecoration: 'none' }}>
+                                <Link to="/profile/favorites" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
                                         Favorites
                                     </Typography>
@@ -94,14 +95,13 @@ const card = (
         </CardContent>
         <CardActions>
             <Button size="small">
-                <Link to="/profile/privatepolicy" style={{ textDecoration: 'none' }}>
-                        Privacy Policy
+                <Link to="/profile/privatepolicy" style={{textDecoration: 'none'}}>
+                    Privacy Policy
                 </Link>
             </Button>
         </CardActions>
     </React.Fragment>
 );
-
 
 export default function ProfilePage() {
     // const [currentUser, setCurrentUser] = useState({})
@@ -120,7 +120,7 @@ export default function ProfilePage() {
     // useEffect(() => {
     //     console.log('how to make you work')
     // }, [checkLoggedIn])
-
+    
     const ProfileInfoEdit = () => {
         const handleSave = async () => {
             try {
@@ -161,20 +161,20 @@ export default function ProfilePage() {
                             </TextField>
                         </div>
                         <div>
-                                <TextField id='nameText'
-                                           label='Frist Name'
-                                           margin='normal'
-                                           inputRef={firstNameRef}
-                                            defaultValue={profile.firstName}>
-                                </TextField>
+                            <TextField id='nameText'
+                                       label='Frist Name'
+                                       margin='normal'
+                                       inputRef={firstNameRef}
+                                       defaultValue={profile.firstName}>
+                            </TextField>
                         </div>
                         <div>
-                                <TextField id='nameText'
-                                           label='Last Name'
-                                           margin='normal'
-                                            inputRef={lastNameRef}
-                                            defaultValue={profile.lastName}>
-                                </TextField>
+                            <TextField id='nameText'
+                                       label='Last Name'
+                                       margin='normal'
+                                       inputRef={lastNameRef}
+                                       defaultValue={profile.lastName}>
+                            </TextField>
                         </div>
                         <div>
                             <TextField
@@ -239,7 +239,7 @@ export default function ProfilePage() {
             </Grid>
         )
     }
-
+    
     // email, and signature cannot been changed now
     const ProfileInfo = () => {
         return (
@@ -348,7 +348,7 @@ export default function ProfilePage() {
             </Grid>
         )
     }
-
+    
     return (
         <>
             {profile && <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>

@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addFavorites, findAllFavorites} from "../../actions/Favorites-actions";
+import Card from "../home/Card";
 
 const HouseDetail = ({house}) => {
-    const [favorites] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     
     const dispatch = useDispatch();
     useEffect(() =>
         findAllFavorites(dispatch));
+    
+    const addFavoritesHandler =(house)=>{
+        const newFavoritesList = [...favorites, house];
+        setFavorites(newFavoritesList);
+        addFavorites(dispatch,favorites)
+    }
     
     return (
         <div className='detail'>
@@ -24,9 +31,9 @@ const HouseDetail = ({house}) => {
                 <p className='middle_dot'> · </p>
                 <p>{house.address}</p>
                 {/*Favorites Button*/}
-                <div className="heart" onClick={() => addFavorites(dispatch, [...favorites, house])}>
+                <div className="heart heart_text" onClick={() => addFavoritesHandler(house)}>
                     <FavoriteBorderIcon/>
-                    <p className='heart_text'>save</p>
+                    <p className="padding-favorite">favorite</p>
                 </div>
             </div>
             
@@ -63,6 +70,7 @@ const HouseDetail = ({house}) => {
                     </div>)}
                 </div>
             </div>
+            
         </div>
     );
 };

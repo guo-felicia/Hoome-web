@@ -38,8 +38,16 @@ h3{
 }
 
 .heart_text {
-    border-bottom: 1px solid black;
     margin-left: 10px;
+}
+
+.padding-favorite{
+    padding-left: 10px;
+}
+
+.heart_text:hover {
+    color: #AC3C3C;
+    transform: scale(1.2);
 }
 
 .main {
@@ -112,6 +120,7 @@ h3{
 }
 
 ul{
+    margin-top: 0px;
     margin-left: 0px;
     padding-left: 15px;
 }
@@ -151,4 +160,18 @@ li span {
 
 .mg-top-0{
     margin-top: 0px;
+}
+
+.thingsToKnowBG{
+    margin-top: 50px;
+    background-color: #E7E3D2;
+}
+
+.thingsToKnowBG > h2{
+    margin-bottom: 30px;
+    padding: 0px;
+}
+
+.searchDetail-bg{
+    background-color: whitesmoke;
 }

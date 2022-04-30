@@ -34,12 +34,12 @@ function App() {
         <BrowserRouter>
             <div className="container">
                 <ProfileProvider>
-                <StateProvider initialState={initialState} reducer={rootReducer}>
-                    <Header/>
-                    <Routes>
-                        <Route path="/">
-                            <Route index element={<Home/>}/>
-                            <Route path="/profile">
+                    <StateProvider initialState={initialState} reducer={rootReducer}>
+                        <Header/>
+                        <Routes>
+                            <Route path="/">
+                                <Route index element={<Home/>}/>
+                                <Route path="/profile">
                                     <Route index element={<SecureRoute> <ProfilePage/> </SecureRoute>}/>
                                     {/*<Route path="/profile/editprofile" element={<EditProfilePage/>}/>*/}
                                     <Route path="/profile/following" element={<Following/>}/>
@@ -47,17 +47,17 @@ function App() {
                                     {/*TODO review list change to questions / just remove*/}
                                     <Route path="/profile/review" element={<Reviews/>}/>
                                     <Route path="/profile/favorites" element={<Favorites/>}/>
+                                </Route>
+                                <Route path="explore" element={<HouseList/>}/>
+                                <Route path="search" element={<SearchPage/>}/>
+                                <Route path="search/:id" element={<SearchDetail/>}/>
+                                <Route path="/login" element={<LoginPage/>}/>
+                                <Route path="/register" element={<SignupPage/>}/>
+                                <Route path="profile/:id" element={<OthersProfile />}/>
                             </Route>
-                            <Route path="explore" element={<HouseList/>}/>
-                            <Route path="search" element={<SearchPage/>}/>
-                            <Route path="search/:id" element={<SearchDetail/>}/>
-                            <Route path="/login" element={<LoginPage/>}/>
-                            <Route path="/register" element={<SignupPage/>}/>
-                            <Route path="profile/:id" element={<OthersProfile />}/>
-                        </Route>
-                    </Routes>
-                    <Footer/>
-                </StateProvider>
+                        </Routes>
+                        <Footer/>
+                    </StateProvider>
                 </ProfileProvider>
             </div>
         </BrowserRouter>);

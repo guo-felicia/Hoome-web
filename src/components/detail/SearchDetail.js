@@ -9,6 +9,7 @@ import questionReducer from "../../reducers/Question-reducer";
 import {Provider} from "react-redux";
 import HouseDetail from "./HouseDetail";
 import favoriteReducer from "../../reducers/Favorite-reducer";
+import Favorites from "../profile/Favorites";
 
 const SearchDetail = () => {
     const location = useLocation();
@@ -24,12 +25,11 @@ const SearchDetail = () => {
         <Provider store={store}>
             <div className='detail'>
                 <HouseDetail house={house}/>
-                {/*Questions*/}
-                <h2 className="padding-top-20">Frequently Ask</h2>
-                <Questions/>
-                {/*Things to Know*/}
-                <h2>Things to Know</h2>
-                <ThingsToKnow/>
+                <div className="searchDetail-bg">
+                    <Questions/>
+                    <ThingsToKnow/>
+                </div>
+                
             </div>
         </Provider>);
 };
