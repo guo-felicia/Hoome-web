@@ -1,3 +1,11 @@
+.games-scroll {
+    /*margin-top: 33px;*/
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
 .f-title{
     padding-left: 20px;
     padding-bottom: 0px;
@@ -17,13 +25,6 @@
     float: left;
 }
 
-.games-scroll {
-    /*margin-top: 33px;*/
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-}
 
 .f-card:hover {
     transform: scale(1.07);
@@ -78,4 +79,71 @@
     position: relative;
     left: 300px;
     bottom: 10px;
+}
+
+.fav-block{
+    width: 90%;
+}
+
+
+@media screen and (min-width: 400px) and (max-width: 900px) {
+
+    .f-title{
+        padding-left: 16px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .f-card {
+        width: 280px;
+        height: 40vw;
+        font-family: 'Open Sans', sans-serif;
+        margin: 20px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+        transition: transform 100ms ease-in;
+        cursor: pointer;
+        float: left;
+    }
+
+
+    .f-card:hover {
+        transform: scale(1.07);
+    }
+
+    .f-card > img {
+        width: 80%;
+        height: 10vw;
+        object-fit: cover;
+    }
+
+    .f-card__info {
+        margin-top: -9px;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1;
+    }
+
+    .f-card__info > h2 {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .f-rating {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .f-card__info > h4 {
+        font-size: 14px;
+        /*font-weight: 300;*/
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
 }

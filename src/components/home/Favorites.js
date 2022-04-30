@@ -30,8 +30,7 @@ export default function Favorites() {
         <>
             
             <h2 className="f-title">My Favorites</h2>
-            <div className="games-scroll">
-                {/*<EmptyFavorites/>*/}
+            <div className="games-scroll fav-block">
                 {
                     favorites.map && favorites.map(favorite =>
                         <div className=''>

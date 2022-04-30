@@ -3,8 +3,8 @@
 }
 
 .home__section {
-    margin-top: 20px;
-    width: 1180px;
+    margin: 20px 40px 20px 0px;
+    width: 95%;
     display: flex;
     padding: 30px;
 }
