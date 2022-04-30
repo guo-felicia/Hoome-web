@@ -43,7 +43,6 @@ function Header() {
             term: endPoint
         })
     }
-    console.log(item)
     
     return (
         <div className='header'>
@@ -62,9 +61,10 @@ function Header() {
                        value={endPoint}
                        onChange={onChangeHandler}
                        placeholder="Try search Bos ~"/>
-                <button type='submit'
+                <button className="search-button" type='submit'
                         onClick={submitHandler}>
-                    <SearchIcon/></button>
+                    <i className="fas fa-search"></i>
+                </button>
             </form>
             
             {/*AVATAR & USER*/}
