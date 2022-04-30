@@ -10,7 +10,7 @@ import {
     Divider, Grid,
     List,
     ListItem,
-    ListItemButton,
+    ListItemButton, Stack,
     TextField, Toolbar
 } from "@mui/material";
 import {Link} from "react-router-dom";
@@ -107,6 +107,10 @@ export default function ProfilePage() {
     // const [currentUser, setCurrentUser] = useState({})
     const {profile, updateProfile} = useProfile()
     const [edit, setEdit] = useState(false)
+    let host = false;
+    if (profile.identity) {
+        host = true
+    }
     // const navigate = useNavigate()
     // const fetchProfile = async () => {
     //     try {
@@ -348,6 +352,35 @@ export default function ProfilePage() {
             </Grid>
         )
     }
+
+    const postHouses = () => {
+
+    }
+
+    const Houses = () => {
+        if (profile.houses) {
+            return (
+                <>
+                    <Box sx={{fontSize : 'h4.fontSize'}}>Houses You Own</Box>
+                    <br/>
+                    <Stack direction="row" spacing={2}>
+                        <ListItem>Item 1</ListItem>
+                        <ListItem>Item 2</ListItem>
+                        <ListItem>Item 3</ListItem>
+                    </Stack>
+                    <br/>
+                    <Button size="small" color="secondary">
+                        <Link to="/postnewhouse" style={{ textDecoration: 'none' }}>
+                            <p className='mg10px'>Release a New House</p>
+                        </Link>
+                    </Button>
+                </>
+            )
+        }
+        else {
+            return <></>
+        }
+    }
     
     return (
         <>
@@ -358,6 +391,10 @@ export default function ProfilePage() {
                 <Box gridColumn="span 8" marginRight={15}>
                     {edit && <ProfileInfoEdit/>}
                     {!edit && <ProfileInfo/>}
+                </Box>
+                <br/>
+                <Box gridColumn="span 12" marginLeft={15} marginRight={15}>
+                    {host && <Houses/>}
                 </Box>
             </Box>}
         </>

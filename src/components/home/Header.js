@@ -80,9 +80,9 @@ function Header() {
                 <Button size="small" color="secondary" onClick={logout}>
                         <p className='mg10px'>Log out</p>
                 </Button>
-                <Button size="small" color="secondary" onClick={becomeHost}>
-                    <p className='mg10px'>Become a host</p>
-                </Button>
+                {/*<Button size="small" color="secondary" onClick={becomeHost}>*/}
+                {/*    <p className='mg10px'>Become a host</p>*/}
+                {/*</Button>*/}
                 <div className='mg10px'>
                     <LanguageIcon/>
                     <ExpandMoreIcon/>

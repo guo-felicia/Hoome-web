@@ -6,15 +6,18 @@ import Card2 from '../../img/card2.png';
 import Card3 from '../../img/card3.png';
 import Favorites from "./Favorites";
 import Card from './Card';
+import SecureContent from "../../SecureContent";
 
 function Home() {
     return (
         <div className='home'>
             <Banner/>
             {/*TODO ADD CHECK: only display when log-in*/}
+            <SecureContent>
             <div className="favorite-box">
                 <Favorites/>
             </div>
+            </SecureContent>
             
             <div className='home__section'>
                 <Card className='card-img-top'

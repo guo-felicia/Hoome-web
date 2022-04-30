@@ -42,14 +42,16 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    const signup = async (email, username, password) => {
+    const signup = async (email, username, password, role) => {
         try {
             const newUser = await service.signup(
                 email,
                 username,
-                password
+                password,
+                role
             )
             setProfile(newUser)
+            console.log(newUser)
         } catch (e) {
             throw e
         }
