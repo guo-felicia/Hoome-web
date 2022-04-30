@@ -2,7 +2,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.bg{
+.bg {
     background-color: #CACBC3;
 }
 
@@ -12,7 +12,7 @@ h2 {
     padding-left: 40px;
 }
 
-h3{
+h3 {
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
@@ -33,15 +33,16 @@ h3{
     display: flex;
     align-items: center;
     margin-left: 30px;
-    position: absolute;
-    left: 1120px;
+    /*position: absolute;*/
+    /*left: 1120px;*/
 }
 
 .heart_text {
     margin-left: 10px;
+    position: relative;
 }
 
-.padding-favorite{
+.padding-favorite {
     padding-left: 10px;
 }
 
@@ -65,7 +66,7 @@ h3{
 }
 
 .image-block {
-    width: 660px;
+    width: 50%;
     padding: 10px;
     margin-left: 15px;
     display: inline-block;
@@ -102,39 +103,36 @@ h3{
     margin-bottom: 0px;
 }
 
-
 .avatar {
     border-radius: 50%;
     width: 48px;
     height: 48px;
     float: right;
-    position: absolute;
-    left:455px;
-    top: 265px;
-    /*top: 24px;*/
-    /*right:20px;*/
+    position: relative;
+    margin: 10px;
+    top: -35px;
 }
 
 .break {
     margin-top: 0px;
 }
 
-ul{
+ul {
     margin-top: 0px;
     margin-left: 0px;
     padding-left: 15px;
 }
 
-.col-3-section{
+.col-3-section {
     display: inline-block;
     margin-left: 40px;
     padding: 20px;
-  }
+}
 
 /* Create three unequal columns that floats next to each other */
 .wd-column {
     float: left;
-    margin-right:115px;
+    margin-right: 115px;
 }
 
 .left, .right {
@@ -145,7 +143,7 @@ ul{
     width: 50%;
 }
 
-li{
+li {
     padding-top: 10px;
 }
 
@@ -154,24 +152,59 @@ li span {
 }
 
 
-.padding-top-20{
+.padding-top-20 {
     padding-top: 20px;
 }
 
-.mg-top-0{
+.mg-top-0 {
     margin-top: 0px;
 }
 
-.thingsToKnowBG{
+.thingsToKnowBG {
     margin-top: 50px;
     background-color: #E7E3D2;
 }
 
-.thingsToKnowBG > h2{
+.thingsToKnowBG > h2 {
     margin-bottom: 30px;
     padding: 0px;
 }
 
-.searchDetail-bg{
+.searchDetail-bg {
     background-color: whitesmoke;
 }
+
+
+@media screen and (min-width: 40px) and (max-width: 900px) {
+
+    .info {
+        display: inline-block;
+        float: left;
+        background-color: #A9B185;
+        color: black;
+        margin-left: 40px;
+        padding: 20px;
+        width: 55%;
+    }
+
+    .image-block {
+        width: 80%;
+        /*max-width: 680px;*/
+        padding: 10px;
+        margin: 20px 40px 20px 40px;
+        background-color: #E7E3D2;
+    }
+
+    .games-scroll {
+        /*margin-top: 33px;*/
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+}
+
+
+
+
+

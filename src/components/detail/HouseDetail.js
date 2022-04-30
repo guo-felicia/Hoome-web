@@ -64,7 +64,7 @@ const HouseDetail = ({house}) => {
                     </ul>
                 
                 </div>
-                <div className='image-block'>
+                <div className='image-block mobile games-scroll'>
                     {house.images.map((image) => <div className='column'>
                         <img className='img' src={image} alt=""/>
                     </div>)}

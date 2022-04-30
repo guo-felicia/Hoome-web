@@ -92,7 +92,7 @@
 .text-box{
     font-family: "Open Sans";
     font-size: 14px;
-    width: 90%;
+    width: 80%;
 }
 
 .post-button{
@@ -107,7 +107,7 @@
 
 
 .grid-row {
-    width: 1150px;
+    /*width: 1150px;*/
     clear: both;
     height: 50px;
     border-bottom: 2px solid #A9B185;
@@ -119,11 +119,32 @@
     float: left;
 }
 .grid-col-main-content {
-    width: 230px;
+    width: 10%;
+    /*width: 230px;*/
     float: left;
 }
 .grid-col-right-sidebar {
-    width: 220px;
+    width: 30%;
+    /*width: 220px;*/
     float: left;
 }
 
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+
+    .grid-col-left-sidebar {
+        width: 60%;
+        float: left;
+    }
+    .grid-col-main-content {
+        width: 0px;
+        /*width: 230px;*/
+        float: left;
+    }
+    .grid-col-right-sidebar {
+        width: 40%;
+        /*width: 220px;*/
+        float: left;
+    }
+
+}
