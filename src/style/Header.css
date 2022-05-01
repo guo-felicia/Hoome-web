@@ -48,6 +48,10 @@
     cursor: pointer;
 }
 
+.size-avt{
+    font-size: 18px;
+}
+
 
 button {
     all: unset;

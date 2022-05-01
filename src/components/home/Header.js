@@ -88,8 +88,9 @@ function Header() {
                     <ExpandMoreIcon/>
                 </div>
                 <Link to='/profile'>
-                    <div className='mg10px'>
-                        <Avatar/>
+                    <div className='mg10px size-avt'>
+                        <i className="fas fa-user"></i>
+                        {/*<Avatar/>*/}
                     </div>
                 </Link>
             </div>
