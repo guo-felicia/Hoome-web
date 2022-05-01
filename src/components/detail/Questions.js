@@ -33,6 +33,7 @@ const Questions = () => {
             {/*TEXT ENTERING AREA*/}
             <SecureContent>
                 <div className="question-box">
+                    <h2 className="question-title">Frequently Ask</h2>
             <textarea className="text-box"
                 placeholder="Type your questions here"
                 onChange={(e) =>
@@ -49,23 +50,6 @@ const Questions = () => {
                     </button>
                 </div>
             </SecureContent>
-            <div className="question-box">
-                <h2 className="question-title">Frequently Ask</h2>
-                <textarea className="text-box"
-                          placeholder="Type your questions here"
-                          onChange={(e) =>
-                              setNewQuestion({
-                                  ...newQuestion,
-                                  question: e.target.value
-                              })}></textarea>
-                
-                {/*TUIT BUTTON*/}
-                <button className="post-button"
-                        onClick={() =>
-                            createQuestion(dispatch, newQuestion)}>
-                    Post
-                </button>
-            </div>
             
             {
                 question.map && question.map(question =>

@@ -22,14 +22,20 @@ export const ProfileProvider = ({children}) => {
         try {
             const p = await service.updateUserInfo(newprofile)
             setProfile(newprofile)
-            console.log('profile after updated')
-            console.log(p)
             return p
         }
         catch (e) {
             throw e
         }
     }
+
+    // const updateHouses = async (newHouse) => {
+    //     try {
+    //         const p = await service.
+    //     } catch (e) {
+    //         throw e
+    //     }
+    // }
 
     const checkLoggedIn = async () => {
         console.log('get into check login')

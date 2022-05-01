@@ -52,7 +52,7 @@ function App() {
                                         <Route path="/profile/review" element={<Reviews/>}/>
                                         <Route path="/profile/favorites" element={<Favorites/>}/>
                                     </Route>
-                                    <Route path="/postnewhouse" element=<PostNewHouse/>/>
+                                    <Route path="/newhouse" element={<SecureRoute> <PostNewHouse/> </SecureRoute>}/>
                                     <Route path="explore" element={<HouseList/>}/>
                                     <Route path="search" element={<SearchPage/>}/>
                                     <Route path="search/:id" element={<SearchDetail/>}/>

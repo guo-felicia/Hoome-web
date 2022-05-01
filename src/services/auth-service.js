@@ -28,6 +28,11 @@ export const updateUserInfo = async (updatedUser) => {
     return response.data
 }
 
+// export const updateHouses = async (newHouse) => {
+//     const response = await api.put(`${API_URL}/profile`, updatedUser)
+//     return response.data
+// }
+
 export const findUserByUsername = async (username) => {
     console.log('been called')
     const response = await api.get(`${API_URL}/profile/${username}`)

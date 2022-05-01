@@ -353,10 +353,6 @@ export default function ProfilePage() {
         )
     }
 
-    const postHouses = () => {
-
-    }
-
     const Houses = () => {
         if (profile.houses) {
             return (
@@ -370,7 +366,7 @@ export default function ProfilePage() {
                     </Stack>
                     <br/>
                     <Button size="small" color="secondary">
-                        <Link to="/postnewhouse" style={{ textDecoration: 'none' }}>
+                        <Link to="/newhouse" style={{ textDecoration: 'none' }}>
                             <p className='mg10px'>Release a New House</p>
                         </Link>
                     </Button>
