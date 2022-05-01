@@ -23,6 +23,7 @@ import {ProfileProvider} from "./ProfileProvider";
 import SecureRoute from "./SecureRoute";
 import {Provider} from "react-redux";
 import PostNewHouse from "./components/profile/PostNewHouse";
+import FavoritesDetail from "./components/detail/FavoritesDetail";
 
 function App() {
     const rootReducer = combineReducers({
@@ -56,6 +57,7 @@ function App() {
                                     <Route path="explore" element={<HouseList/>}/>
                                     <Route path="search" element={<SearchPage/>}/>
                                     <Route path="search/:id" element={<SearchDetail/>}/>
+                                    <Route path="detail/:id" element={<FavoritesDetail/>}/>
                                     <Route path="/login" element={<LoginPage/>}/>
                                     <Route path="/register" element={<SignupPage/>}/>
                                     <Route path="profile/:id" element={<OthersProfile/>}/>
