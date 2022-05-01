@@ -37,7 +37,35 @@ export const ProfileProvider = ({children}) => {
             let newPro = {email: profile.email, identity: profile.identity, username: profile.username, password: profile.password,
                 firstName: profile.firstName, lastName: profile.lastName,
                 aboutyou: profile.aboutyou, location: profile.location,
-                languages: profile.languages, jobs: profile.jobs, houses: newHouses}
+                languages: profile.languages, jobs: profile.jobs, followers: profile.followers,
+                followings: profile.followings, houses: newHouses}
+            const p = await service.updateUserInfo(newPro)
+            setProfile(p)
+            return p
+
+        } catch (e) {
+            throw e
+        }
+    }
+
+    const updateFollowings = async (newFollowing, identity) => {
+        try {
+            const followingArray = profile.followings
+            const newFollowings = [...followingArray]
+            newFollowings.push(newFollowing)
+            let newPro;
+            if (identity === 'host') {
+                newPro = {email: profile.email, identity: profile.identity, username: profile.username, password: profile.password,
+                    firstName: profile.firstName, lastName: profile.lastName,
+                    aboutyou: profile.aboutyou, location: profile.location,
+                    languages: profile.languages, jobs: profile.jobs, followers: profile.followers, followings: newFollowings,
+                    houses: profile.houses}
+            } else {
+                newPro = {email: profile.email, identity: profile.identity, username: profile.username, password: profile.password,
+                    firstName: profile.firstName, lastName: profile.lastName,
+                    aboutyou: profile.aboutyou, location: profile.location,
+                    languages: profile.languages, jobs: profile.jobs, followers: profile.followers, followings: newFollowings}
+            }
             const p = await service.updateUserInfo(newPro)
             setProfile(p)
             return p
@@ -76,7 +104,7 @@ export const ProfileProvider = ({children}) => {
         setProfile(null)
     }
 
-    const value = {profile, updateProfile, signup, checkLoggedIn, signin, signout, updateHouses}
+    const value = {profile, updateProfile, signup, checkLoggedIn, signin, signout, updateHouses, updateFollowings}
     return(
         <ProfileContext.Provider value={value}>
             {children}

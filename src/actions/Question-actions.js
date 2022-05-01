@@ -32,6 +32,7 @@ export const createQuestion = async (dispatch, data) => {
 
 
 export const updateQuestion = async (dispatch, data) => {
+
     const status = await service.updateQuestion(data);
     dispatch({
         type: UPDATE,

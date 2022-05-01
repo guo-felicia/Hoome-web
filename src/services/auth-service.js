@@ -28,13 +28,17 @@ export const updateUserInfo = async (updatedUser) => {
     return response.data
 }
 
+export const addFollowing = async (username, following, identity) => {
+    const response = await api.put(`${API_URL}/profile/${username}`, {following, identity})
+    return response.data
+}
+
 // export const updateHouses = async (newHouse) => {
 //     const response = await api.put(`${API_URL}/newhouse`, newHouse)
 //     return response.data
 // }
 
 export const findUserByUsername = async (username) => {
-    console.log('been called')
     const response = await api.get(`${API_URL}/profile/${username}`)
     return response.data
 }

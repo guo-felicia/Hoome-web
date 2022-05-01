@@ -47,8 +47,8 @@ function App() {
                                     <Route path="/profile">
                                         <Route index element={<SecureRoute> <ProfilePage/> </SecureRoute>}/>
                                         {/*<Route path="/profile/editprofile" element={<EditProfilePage/>}/>*/}
-                                        <Route path="/profile/following" element={<Following/>}/>
-                                        <Route path="/profile/followers" element={<Followers/>}/>
+                                        <Route path="/profile/following" element={<SecureRoute> <Following/> </SecureRoute>}/>
+                                        <Route path="/profile/followers" element={<SecureRoute> <Followers/> </SecureRoute>}/>
                                         {/*TODO review list change to questions / just remove*/}
                                         <Route path="/profile/review" element={<Reviews/>}/>
                                         <Route path="/profile/favorites" element={<Favorites/>}/>

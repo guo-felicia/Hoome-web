@@ -4,7 +4,7 @@ import '../../style/Questions.css'
 import {createQuestion, deleteQuestion, findAllQuestions, updateQuestion} from "../../actions/Question-actions";
 import SecureContent from "../../SecureContent";
 import {useProfile} from "../../ProfileProvider";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Questions = () => {
     const {profile} = useProfile()
@@ -14,6 +14,7 @@ const Questions = () => {
     const [newQuestion, setNewQuestion] =
         useState({question: 'New Question'});
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     useEffect(() =>
         findAllQuestions(dispatch));
 
@@ -24,6 +25,32 @@ const Questions = () => {
         }
         else {
             alert('how did you get the post button without login???')
+        }
+    }
+
+    const handleLike = (question) => {
+        if (profile) {
+            updateQuestion(dispatch, {
+                ...question,
+                likes: question.likes + 1
+            })
+        }
+        else {
+            alert('you havent login in!')
+            navigate('/login')
+        }
+    }
+
+    const handleDisLike = (question) => {
+        if (profile) {
+            updateQuestion(dispatch, {
+                ...question,
+                dislikes: question.dislikes + 1
+            })
+        }
+        else {
+            alert('you havent login in!')
+            navigate('/login')
         }
     }
     
@@ -74,19 +101,13 @@ const Questions = () => {
                             <div className="grid-col-right-sidebar bg-color-green fg-color-white action-box">
                                 <div className="like">
                                     <p className="center icon-font hover">
-                                        <i onClick={() => updateQuestion(dispatch, {
-                                            ...question,
-                                            likes: question.likes + 1
-                                        })} className="far fa-thumbs-up icon"/>
+                                        <i onClick={() => handleLike(question)} className="far fa-thumbs-up icon"/>
                                         {question.likes}
                                     </p>
                                 </div>
                                 <div className="dislike">
                                     <p className="center icon-font hover">
-                                        <i onClick={() => updateQuestion(dispatch, {
-                                            ...question,
-                                            dislikes: question.dislikes + 1
-                                        })} className="far fa-thumbs-down icon"/>
+                                        <i onClick={() => handleDisLike(question)} className="far fa-thumbs-down icon"/>
                                         {question.dislikes}
                                     </p>
                                 </div>

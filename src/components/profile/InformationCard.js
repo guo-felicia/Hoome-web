@@ -107,10 +107,10 @@ export default function ProfilePage() {
     const {profile, updateProfile} = useProfile()
     const [edit, setEdit] = useState(false)
     let host = false;
-    console.log('profile identity')
-    console.log(profile.identity)
-    if (profile.identity) {
-        host = true
+    if (profile && profile.identity) {
+        if (profile.identity === 'host') {
+            host = true
+        }
     }
     // const navigate = useNavigate()
     // const fetchProfile = async () => {
@@ -129,7 +129,7 @@ export default function ProfilePage() {
     const ProfileInfoEdit = () => {
         const handleSave = async () => {
             try {
-                let newProfile = {email: profile.email, username: profile.username, password: passwordRef.current.value,
+                let newProfile = {email: profile.email, identity: profile.identity, username: profile.username, password: passwordRef.current.value,
                     firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
                     aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
                     languages: languagesRef.current.value, jobs: jobsRef.current.value}
@@ -355,8 +355,6 @@ export default function ProfilePage() {
     }
 
     const Houses = () => {
-        console.log('profile houses')
-        console.log(profile.houses)
         if (profile.houses) {
             return (
                 <>
