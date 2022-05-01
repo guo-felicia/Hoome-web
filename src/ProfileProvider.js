@@ -29,16 +29,25 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    // const updateHouses = async (newHouse) => {
-    //     try {
-    //         const p = await service.
-    //     } catch (e) {
-    //         throw e
-    //     }
-    // }
+    const updateHouses = async (newHouse) => {
+        try {
+            const housesArray = profile.houses
+            const newHouses = [...housesArray]
+            newHouses.push(newHouse)
+            let newPro = {email: profile.email, identity: profile.identity, username: profile.username, password: profile.password,
+                firstName: profile.firstName, lastName: profile.lastName,
+                aboutyou: profile.aboutyou, location: profile.location,
+                languages: profile.languages, jobs: profile.jobs, houses: newHouses}
+            const p = await service.updateUserInfo(newPro)
+            setProfile(p)
+            return p
+
+        } catch (e) {
+            throw e
+        }
+    }
 
     const checkLoggedIn = async () => {
-        console.log('get into check login')
         try {
             const p = await service.profile()
             setProfile(p)
@@ -57,7 +66,6 @@ export const ProfileProvider = ({children}) => {
                 role
             )
             setProfile(newUser)
-            console.log(newUser)
         } catch (e) {
             throw e
         }
@@ -68,7 +76,7 @@ export const ProfileProvider = ({children}) => {
         setProfile(null)
     }
 
-    const value = {profile, updateProfile, signup, checkLoggedIn, signin, signout}
+    const value = {profile, updateProfile, signup, checkLoggedIn, signin, signout, updateHouses}
     return(
         <ProfileContext.Provider value={value}>
             {children}

@@ -10,8 +10,6 @@ const Questions = () => {
     const {profile} = useProfile()
     const question = useSelector(
         state => state.questions);
-    console.log('questions')
-    console.log(question)
     // create a new state variable with new tuit data
     const [newQuestion, setNewQuestion] =
         useState({question: 'New Question'});
@@ -61,7 +59,6 @@ const Questions = () => {
                             canDelete = true;
                         }
                     }
-                    console.log(canDelete);
                     return (
                         <div className='question-block grid-row'>
                             <div className="grid-col-left-sidebar bg-color-yellow">

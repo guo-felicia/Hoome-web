@@ -13,7 +13,7 @@ import {useProfile} from "../../ProfileProvider";
 export default function PostNewHouse() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {profile, updateProfile} = useProfile()
+    const {profile, updateHouses} = useProfile()
     /*
     img: String,
     location: String,
@@ -32,7 +32,7 @@ export default function PostNewHouse() {
 
     const addNewHouseHandler = async ()=>{
         let house = {img: imgRef.current.value, location: locationRef.current.value, title: titleRef.current.value,
-            description: descripRef.current.value, star: 5, price: priceRef.current.value, total: totalRef.current.value,
+            description: descripRef.current.value, rating: 5, price: priceRef.current.value, total: totalRef.current.value,
         postby: profile.username}
         const newHouse = await service.createHouses(house)
         dispatch({
@@ -40,12 +40,8 @@ export default function PostNewHouse() {
             newHouse: newHouse
         });
         try {
-            let newProfile = {email: profile.email, username: profile.username, password: profile.password,
-                firstName: profile.firstName, lastName: profile.lastName,
-                aboutyou: profile.aboutyou, location: profile.location,
-                languages: profile.languages, jobs: profile.jobs}
-            await updateProfile(
-                newProfile
+            await (
+                updateHouses(newHouse)
             )
         } catch (e) {
             alert('save profile failed')

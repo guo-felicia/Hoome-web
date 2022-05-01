@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {
-    Avatar,
+    Avatar, CardMedia,
     Divider, Grid,
     List,
     ListItem,
@@ -17,7 +17,6 @@ import {Link} from "react-router-dom";
 import {useRef, useState} from "react";
 // import {profile, signin, updateUser, updateUserInfo} from "../../services/auth-service";
 import {useProfile} from "../../ProfileProvider";
-import Favorites from "./Favorites";
 
 const card = (
     <React.Fragment>
@@ -108,6 +107,8 @@ export default function ProfilePage() {
     const {profile, updateProfile} = useProfile()
     const [edit, setEdit] = useState(false)
     let host = false;
+    console.log('profile identity')
+    console.log(profile.identity)
     if (profile.identity) {
         host = true
     }
@@ -354,15 +355,37 @@ export default function ProfilePage() {
     }
 
     const Houses = () => {
+        console.log('profile houses')
+        console.log(profile.houses)
         if (profile.houses) {
             return (
                 <>
                     <Box sx={{fontSize : 'h4.fontSize'}}>Houses You Own</Box>
                     <br/>
                     <Stack direction="row" spacing={2}>
-                        <ListItem>Item 1</ListItem>
-                        <ListItem>Item 2</ListItem>
-                        <ListItem>Item 3</ListItem>
+                        {profile.houses.map((house) => {
+                            return (
+                                <Card sx={{ maxWidth: 345 }}>
+                                    <CardMedia
+                                        component="img"
+                                        height="140"
+                                        image={house.img}
+                                        alt="green iguana"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {house.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {house.description}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.primary">
+                                            {house.price}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            )
+                        })}
                     </Stack>
                     <br/>
                     <Button size="small" color="secondary">
@@ -374,7 +397,13 @@ export default function ProfilePage() {
             )
         }
         else {
-            return <></>
+            return (
+            <>
+                <Box sx={{fontSize: 'h5.fontSize', color: 'yellowgreen'}}>Your House List is Empty.</Box>
+                <br/>
+                <Box sx={{fontSize: 'h5.fontSize'}}>Release Your First House!</Box>
+            </>
+            )
         }
     }
     

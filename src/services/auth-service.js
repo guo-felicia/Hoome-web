@@ -29,7 +29,7 @@ export const updateUserInfo = async (updatedUser) => {
 }
 
 // export const updateHouses = async (newHouse) => {
-//     const response = await api.put(`${API_URL}/profile`, updatedUser)
+//     const response = await api.put(`${API_URL}/newhouse`, newHouse)
 //     return response.data
 // }
 
