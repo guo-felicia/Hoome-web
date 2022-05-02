@@ -50,7 +50,7 @@ function App() {
                                         <Route path="/profile/following" element={<SecureRoute> <Following/> </SecureRoute>}/>
                                         <Route path="/profile/followers" element={<SecureRoute> <Followers/> </SecureRoute>}/>
                                         {/*TODO review list change to questions / just remove*/}
-                                        <Route path="/profile/questions" element={<Questions/>}/>
+                                        <Route path="/profile/questions" element={<SecureRoute> <Questions/> </SecureRoute>}/>
                                         <Route path="/profile/favorites" element={<Favorites/>}/>
                                     </Route>
                                     <Route path="/newhouse" element={<SecureRoute> <PostNewHouse/> </SecureRoute>}/>

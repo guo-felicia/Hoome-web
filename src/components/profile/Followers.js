@@ -23,7 +23,7 @@ export default function Followers() {
     if (profile) {
         return(
             <Box sx={{ m: 5 }}>
-                <Box sx={{ fontSize: 'h3.fontSize'}}>Following List</Box>
+                <Box sx={{ fontSize: 'h3.fontSize'}}>Followers List</Box>
                 <br/>
                 <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                     <nav aria-label="secondary mailbox folders">

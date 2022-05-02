@@ -24,8 +24,6 @@ export default function Questions() {
     const [question, setQuestion] = useState([]);
     const getQuestions = async () => {
         const questions = await service.findQuestionByUser(profile.username, profile.firstName);
-        console.log('questions')
-        console.log(questions)
         setQuestion(questions);
     }
     useEffect(() => {

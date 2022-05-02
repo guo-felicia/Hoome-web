@@ -21,8 +21,8 @@ export const deleteFavorites = async (dispatch, data) => {
     })
 }
 
-export const addFavorites = async (dispatch, data) => {
-    const newFavorite = await service.addFavorites(data);
+export const addFavorites = async (dispatch, data, username) => {
+    const newFavorite = await service.addFavorites(data, username);
     dispatch({
         type: ADD_FAVORITES,
         newFavorite: newFavorite

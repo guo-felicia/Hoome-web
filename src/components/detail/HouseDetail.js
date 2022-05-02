@@ -4,18 +4,28 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import {useDispatch, useSelector} from "react-redux";
 import {addFavorites, findAllFavorites} from "../../actions/Favorites-actions";
 import Card from "../home/Card";
+import {useProfile} from "../../ProfileProvider";
+import {useNavigate} from "react-router-dom";
 
 const HouseDetail = ({house}) => {
     const [favorites, setFavorites] = useState([]);
+    const {profile} = useProfile();
+    const navigate = useNavigate();
     
     const dispatch = useDispatch();
     useEffect(() =>
         findAllFavorites(dispatch));
     
     const addFavoritesHandler =(house)=>{
-        const newFavoritesList = [...favorites, house];
-        setFavorites(newFavoritesList);
-        addFavorites(dispatch,favorites)
+        if (profile) {
+            const newFavoritesList = [...favorites, house];
+            setFavorites(newFavoritesList);
+            addFavorites(dispatch,favorites, profile.username)
+        }
+        else {
+            alert('you havent login yet!')
+            navigate('/login')
+        }
     }
     
     return (

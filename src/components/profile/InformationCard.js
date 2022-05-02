@@ -366,8 +366,6 @@ export default function ProfilePage() {
     }
 
     const Houses = () => {
-        console.log('profile')
-        console.log(profile)
         if (profile.houses) {
             return (
                 <>

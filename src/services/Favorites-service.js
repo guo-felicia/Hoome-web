@@ -20,8 +20,15 @@ export const deleteFavorites = async (data) => {
     return response.data;
 }
 
-export const addFavorites = async (data) => {
+export const addFavorites = async (data, username) => {
+    data[0]['postedBy'] = username;
     const response = await axios.post(FAVORITES_API, data);
     return response.data;
+}
+
+export const findFavoritesByUser = async (username) => {
+    const response =  await axios.get(`${FAVORITES_API}/${username}`)
+    const data = response.data
+    return data;
 }
 

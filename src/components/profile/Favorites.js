@@ -4,6 +4,10 @@ import {useEffect, useState} from "react";
 import FavoritesCard from './FavoritesCard'
 import '../../style/Favorites.css';
 import {useNavigate} from "react-router-dom";
+import {useProfile} from "../../ProfileProvider";
+import {findFavoritesByUser} from "../../services/Favorites-service";
+import * as service from "../../services/Favorites-service";
+
 
 
 const EmptyFavorites = () => {
@@ -24,28 +28,40 @@ export default function Favorites() {
     
     const [favorites, setFavorites] = useState([]);
     const navigate = useNavigate();
-    
-    const getFavoritesList = async () => {
-        const url = "http://localhost:4000/api/favorites";
-        const response = await fetch(url);
-        const responseJson = await response.json();
-        
-        console.log(responseJson);
-        setFavorites(responseJson);
+    const {profile} = useProfile();
+
+    const getFavorites = async () => {
+        const favors = await service.findFavoritesByUser(profile.username);
+        setFavorites(favors)
     }
-    
     useEffect(() => {
-        getFavoritesList();
-        return () => {
-            setFavorites({}); // This worked for me
-        };
-    }, []);
+        if (profile) {
+            getFavorites()
+        }
+    }, [])
+    
+    // const getFavoritesList = async () => {
+    //     const url = "http://localhost:4000/api/favorites";
+    //     const response = await fetch(url);
+    //     const responseJson = await response.json();
+    //
+    //     console.log(responseJson);
+    //     setFavorites(responseJson);
+    // }
+    
+    // useEffect(() => {
+    //     getFavoritesList();
+    //     return () => {
+    //         setFavorites({}); // This worked for me
+    //     };
+    // }, []);
     
     
     // HD here. Just the initial no data page.
     return (
         <>
-            <h2 className="f-title">My Favorites</h2>
+            <Box sx={{ fontSize: 'h3.fontSize'}}>My Favorites</Box>
+            <br/>
             <div className="games-scroll">
                 {/*<EmptyFavorites/>*/}
                 {

@@ -32,7 +32,6 @@ export const createQuestion = async (data) => {
 }
 
 
-
 export const updateQuestion = async (tuit) => {
     const response = await axios
         .put(`${QUESTION_API}/${tuit._id}`, tuit);
