@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useLocation} from "react-router-dom";
 import '../../style/DetailPage.css'
 import ThingsToKnow from "./ThingsToKnow";
@@ -6,12 +6,13 @@ import Questions from "./Questions";
 import {combineReducers, createStore} from "redux";
 import houseReducer from "../../reducers/House-reducer";
 import questionReducer from "../../reducers/Question-reducer";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import HouseDetail from "./HouseDetail";
 import favoriteReducer from "../../reducers/Favorite-reducer";
 import Favorites from "../profile/Favorites";
 import StarIcon from "@material-ui/icons/Star";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import {deleteFavorites, findAllFavorites} from "../../actions/Favorites-actions";
 
 const FavoritesDetail = () => {
     const location = useLocation();
@@ -23,6 +24,9 @@ const FavoritesDetail = () => {
         favorites: favoriteReducer
     });
     const store = createStore(rootReducer);
+    const dispatch = useDispatch();
+    useEffect(() =>
+        findAllFavorites(dispatch));
     
     return (
         <Provider store={store}>
@@ -36,6 +40,11 @@ const FavoritesDetail = () => {
                     <p>{house.reviewsCount} reviews</p>
                     <p className='middle_dot'> · </p>
                     <p>{house.address}</p>
+                    <div className="heart heart_text" onClick={() => deleteFavorites(
+                        dispatch, house)}>
+                        <i className="fas fa-heart red"></i>
+                        <p className="padding-favorite">unfavorite</p>
+                    </div>
                 </div>
                 
                 {/*Main contents*/}

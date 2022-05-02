@@ -51,7 +51,8 @@ export default function Favorites() {
                 {
                     favorites.map && favorites.map(favorite =>
                         <button className='unset_button'
-                                onClick={() => {
+                                onClick={(e) => {
+                                    e.stopPropagation();
                                     navigate(`/detail/${favorite._id}`, {state: {favorite}})
                                 }}>
                             <div className=''>

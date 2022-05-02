@@ -18,13 +18,13 @@ function FavoritesCard({favorites, src, title, description, price}) {
                         {price} </span>
                 </h2>
                 <h4>{description}</h4>
-                <div className=" f-pos">
-                    <p className="center icon-font">
-                        <i className="fas fa-trash float-end"
-                           onClick={() => deleteFavorites(
-                               dispatch, favorites)}></i>
-                    </p>
-                </div>
+                {/*<div className=" f-pos">*/}
+                {/*    <p className="center icon-font">*/}
+                {/*        <i className="fas fa-trash float-end"*/}
+                {/*           onClick={() => deleteFavorites(*/}
+                {/*               dispatch, favorites)}></i>*/}
+                {/*    </p>*/}
+                {/*</div>*/}
             </div>
         </div>
     )
