@@ -407,19 +407,27 @@ export default function ProfilePage() {
     
     return (
         <>
-            {profile && <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} marginTop={5} marginBottom={5}>
-                <Box gridColumn="span 4" marginLeft={15}>
+            <br/>
+            <br/>
+            {profile && <Grid container spacing={2}>
+                <Grid item xs={0} md={2}>
+
+                </Grid>
+                <Grid item xs={6} md={3}>
                     <SideBar/>
-                </Box>
-                <Box gridColumn="span 8" marginRight={15}>
+                </Grid>
+                <Grid item xs={0} md={1}>
+
+                </Grid>
+                <Grid item xs={6} md={6} justifyContent="center">
                     {edit && <ProfileInfoEdit/>}
                     {!edit && <ProfileInfo/>}
-                </Box>
+                </Grid>
                 <br/>
-                <Box gridColumn="span 12" marginLeft={15} marginRight={15}>
+                <Grid item xs={12}>
                     {host && <Houses/>}
-                </Box>
-            </Box>}
+                </Grid>
+            </Grid>}
         </>
     )
 }
