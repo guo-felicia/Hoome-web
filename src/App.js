@@ -6,7 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ProfilePage, {EditProfilePage} from "./components/profile/InformationCard";
 import Following from "./components/profile/Following";
 import Followers from "./components/profile/Followers";
-import Reviews from "./components/profile/Reviews";
+import Questions from "./components/profile/Questions";
 import Favorites from "./components/profile/Favorites";
 import OthersProfile from "./components/profile/OthersProfile"
 import LoginPage from "./components/Login/LoginPage";
@@ -50,7 +50,7 @@ function App() {
                                         <Route path="/profile/following" element={<SecureRoute> <Following/> </SecureRoute>}/>
                                         <Route path="/profile/followers" element={<SecureRoute> <Followers/> </SecureRoute>}/>
                                         {/*TODO review list change to questions / just remove*/}
-                                        <Route path="/profile/review" element={<Reviews/>}/>
+                                        <Route path="/profile/questions" element={<Questions/>}/>
                                         <Route path="/profile/favorites" element={<Favorites/>}/>
                                     </Route>
                                     <Route path="/newhouse" element={<SecureRoute> <PostNewHouse/> </SecureRoute>}/>

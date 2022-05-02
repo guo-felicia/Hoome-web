@@ -61,9 +61,9 @@ const card = (
                     <List>
                         <ListItem disablePadding className="mt-2 mb-2">
                             <ListItemButton>
-                                <Link to="/profile/review" style={{textDecoration: 'none'}}>
+                                <Link to="/profile/questions" style={{textDecoration: 'none'}}>
                                     <Typography color={"black"}>
-                                        Review
+                                        Questions
                                     </Typography>
                                 </Link>
                             </ListItemButton>
@@ -129,10 +129,21 @@ export default function ProfilePage() {
     const ProfileInfoEdit = () => {
         const handleSave = async () => {
             try {
-                let newProfile = {email: profile.email, identity: profile.identity, username: profile.username, password: passwordRef.current.value,
-                    firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
-                    aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
-                    languages: languagesRef.current.value, jobs: jobsRef.current.value}
+                let newProfile;
+                    if (profile.identity === 'host') {
+                        newProfile = {email: profile.email, identity: profile.identity, username: profile.username, password: passwordRef.current.value,
+                        firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
+                        aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
+                        languages: languagesRef.current.value, jobs: jobsRef.current.value, followers: profile.followers,
+                        followings: profile.followings, houses: profile.houses}
+                    }
+                else {
+                        newProfile = {email: profile.email, identity: profile.identity, username: profile.username, password: passwordRef.current.value,
+                            firstName: firstNameRef.current.value, lastName: lastNameRef.current.value,
+                            aboutyou: aboutyouRef.current.value, location: locationRef.current.value,
+                            languages: languagesRef.current.value, jobs: jobsRef.current.value, followers: profile.followers,
+                            followings: profile.followings}
+                }
                 await updateProfile(
                     newProfile
                 )
@@ -355,6 +366,8 @@ export default function ProfilePage() {
     }
 
     const Houses = () => {
+        console.log('profile')
+        console.log(profile)
         if (profile.houses) {
             return (
                 <>
@@ -400,6 +413,12 @@ export default function ProfilePage() {
                 <Box sx={{fontSize: 'h5.fontSize', color: 'yellowgreen'}}>Your House List is Empty.</Box>
                 <br/>
                 <Box sx={{fontSize: 'h5.fontSize'}}>Release Your First House!</Box>
+                <br/>
+                <Button size="small" color="secondary">
+                    <Link to="/newhouse" style={{ textDecoration: 'none' }}>
+                        <p className='mg10px'>Release a New House</p>
+                    </Link>
+                </Button>
             </>
             )
         }

@@ -38,7 +38,7 @@ const OthersProfile = () => {
             try {
                 await updateFollowings(
                     id,
-                    otherspro.identity
+                    profile.identity
                 )
             } catch (e) {
                 alert('update following failed')

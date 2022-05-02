@@ -14,6 +14,12 @@ export const findAllQuestions = async () => {
     return data;
 }
 
+export const findQuestionByUser = async (username, firstName) => {
+    const response =  await axios.get(`${QUESTION_API}/${username}/${firstName}`)
+    const data = response.data
+    return data;
+}
+
 export const deleteQuestion = async (data) => {
     const response = await axios
         .delete(`${QUESTION_API}/${data._id}`);
